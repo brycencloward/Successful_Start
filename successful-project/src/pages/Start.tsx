@@ -16,6 +16,7 @@ const Home: React.FC = () => {
   return (
     
     <IonPage>
+      <MainHeader />
  
     <IonContent>
       <IonList>
