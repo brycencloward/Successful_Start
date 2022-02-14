@@ -1,0 +1,15 @@
+.navbar{
+  display: flex;
+}
+
+.nav-button {
+  text-align: center;
+  flex: 33%;
+}
+
+.full-logo {
+  margin: auto;
+  display: block;
+  max-height: 100px;
+  text-align: center;
+}
