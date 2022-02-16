@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './ApplyNow.css';
 import{arrowForward} from "ionicons/icons";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCheckbox, IonList, IonItem, IonLabel, IonItemDivider, IonIcon, IonButton, IonRouterLink, IonButtons } from '@ionic/react';
-import MainHeader from '../components/MainHeader'; //required for MainHeader custom component
-import './Start.css';
 
 const checkboxList = [
   { val: 'I have no substantial work experience-I am just graduating high school.', isChecked: false },
@@ -16,7 +14,6 @@ const Home: React.FC = () => {
   return (
     
     <IonPage>
-      <MainHeader />
  
     <IonContent>
       <IonList>
@@ -36,8 +33,8 @@ const Home: React.FC = () => {
         </IonButton>
     </IonContent>
   </IonPage>
-      
   );
 };
 
 export default Home;
+
