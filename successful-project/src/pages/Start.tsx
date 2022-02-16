@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ApplyNow.css';
 import{arrowForward} from "ionicons/icons";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCheckbox, IonList, IonItem, IonLabel, IonItemDivider, IonIcon, IonButton, IonRouterLink, IonButtons } from '@ionic/react';
+import MainHeader from '../components/MainHeader';
 
 const checkboxList = [
   { val: 'I have no substantial work experience-I am just graduating high school.', isChecked: false },
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
   return (
     
     <IonPage>
- 
+ <MainHeader/>
     <IonContent>
       <IonList>
         <IonTitle>What areas do you have experience that might be applied for college credit?</IonTitle>
@@ -27,9 +28,7 @@ const Home: React.FC = () => {
         ))}
       </IonList>
           <IonButton>
-          <IonRouterLink routerLink="/pages/ApplyNow">
           <IonIcon slot="icon-only" icon={arrowForward} />
-          </IonRouterLink>
         </IonButton>
     </IonContent>
   </IonPage>
