@@ -23,12 +23,13 @@ const Home: React.FC = () => {
         {checkboxList.map(({ val, isChecked }, i) => (
           <IonItem key={i}>
             <IonLabel>{val}</IonLabel>
-            <IonCheckbox slot="end" value={val} checked={isChecked}  />
+            <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>
         ))}
       </IonList>
-          <IonButton>
-          <IonIcon slot="icon-only" icon={arrowForward} />
+          <IonButton color="tertiary" expand="block">
+          <IonLabel>Next</IonLabel>
+          <IonIcon icon={arrowForward} />
         </IonButton>
     </IonContent>
   </IonPage>

@@ -2,6 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Start';
+import WhichCLEP from './pages/WhichCLEP';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,6 +34,13 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
+        </Route>
+        
+        <Route exact path="/whichclep">
+          <WhichCLEP />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/whichclep" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

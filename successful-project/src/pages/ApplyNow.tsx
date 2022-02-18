@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import MainHeader from '../components/MainHeader';
 import './ApplyNow.css';
-const Home: React.FC = () => {
+const ApplyNow: React.FC = () => {
   return (
     <IonPage>
          <MainHeader />
@@ -23,4 +23,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default ApplyNow;
