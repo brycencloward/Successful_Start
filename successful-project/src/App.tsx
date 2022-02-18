@@ -49,71 +49,41 @@ const App: React.FC = () => (
         <Route exact path="/ApplyNow">
           <ApplyNow />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/ApplyNow" />
-        </Route>
 
         <Route exact path="/CalendarSetup">
           <CalendarSetup />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/CalendarSetup" />
         </Route>
 
         <Route exact path="/CollegeCreditQ">
           <CollegeCreditQ />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/CollegeCreditQ" />
-        </Route>
 
         <Route exact path="/CreditResults">
           <CreditResults />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/CreditResults" />
         </Route>
 
         <Route exact path="/TypeWorkExp">
           <TypeWorkExp />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/TypeWorkExp" />
-        </Route>
 
         <Route exact path="/WhichBusinessCLEP">
           <WhichBusinessCLEP />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/WhichBusinessCLEP" />
         </Route>
 
         <Route exact path="/WhichCLEP">
           <WhichCLEP />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/WhichCLEP" />
-        </Route>
 
         <Route exact path="/WhichTests">
           <WhichTests />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/WhichTests" />
         </Route>
 
         <Route exact path="/WorkExpCreditResults">
           <WorkExpCreditResults />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/WorkExpCreditResults" />
-        </Route>
         
         <Route exact path="/WorkExpStart">
           <WorkExpStart />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/WorkExpStart" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
