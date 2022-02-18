@@ -3,6 +3,15 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Start';
 import WhichCLEP from './pages/WhichCLEP';
+import ApplyNow from './pages/ApplyNow';
+import CalendarSetup from './pages/CalendarSetup';
+import CollegeCreditQ from './pages/CollegeCreditQ';
+import CreditResults from './pages/CreditResults';
+import TypeWorkExp from './pages/TypeWorkExp';
+import WhichBusinessCLEP from './pages/WhichBusinessCLEP';
+import WhichTests from './pages/WhichTests';
+import WorkExpCreditResults from './pages/WorkExpCreditResults';
+import WorkExpStart from './pages/WorkExpStart';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,6 +32,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -35,12 +45,75 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
-        
-        <Route exact path="/whichclep">
+
+        <Route exact path="/ApplyNow">
+          <ApplyNow />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/ApplyNow" />
+        </Route>
+
+        <Route exact path="/CalendarSetup">
+          <CalendarSetup />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/CalendarSetup" />
+        </Route>
+
+        <Route exact path="/CollegeCreditQ">
+          <CollegeCreditQ />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/CollegeCreditQ" />
+        </Route>
+
+        <Route exact path="/CreditResults">
+          <CreditResults />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/CreditResults" />
+        </Route>
+
+        <Route exact path="/TypeWorkExp">
+          <TypeWorkExp />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/TypeWorkExp" />
+        </Route>
+
+        <Route exact path="/WhichBusinessCLEP">
+          <WhichBusinessCLEP />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/WhichBusinessCLEP" />
+        </Route>
+
+        <Route exact path="/WhichCLEP">
           <WhichCLEP />
         </Route>
         <Route exact path="/">
-          <Redirect to="/whichclep" />
+          <Redirect to="/WhichCLEP" />
+        </Route>
+
+        <Route exact path="/WhichTests">
+          <WhichTests />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/WhichTests" />
+        </Route>
+
+        <Route exact path="/WorkExpCreditResults">
+          <WorkExpCreditResults />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/WorkExpCreditResults" />
+        </Route>
+        
+        <Route exact path="/WorkExpStart">
+          <WorkExpStart />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/WorkExpStart" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
