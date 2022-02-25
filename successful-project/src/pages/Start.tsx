@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
 import './ApplyNow.css';
 import{arrowForward} from "ionicons/icons";
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCheckbox, IonList, IonItem, IonLabel, IonItemDivider, IonIcon, IonButton, IonRouterLink, IonButtons } from '@ionic/react';
+import { IonContent, IonPage, IonTitle , IonCheckbox, IonList, IonItem, IonLabel, IonIcon, IonButton } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
 
   
