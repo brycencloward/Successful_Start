@@ -19,13 +19,13 @@ const WhichBusinessCLEP: React.FC = () => {
         <IonToolbar>
           <IonLabel className= "ion-text-wrap"> Please select the tests you have passed (passing is a minimum score of 50):</IonLabel>
           {checkboxList.map(({ val, isChecked }, i) => (
-          <IonItem key={i}>
+          <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>
         ))}
         </IonToolbar>
-        <IonButton color="tertiary" expand="block">
+        <IonButton color="tertiary" expand="block" routerLink='CreditResults'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>

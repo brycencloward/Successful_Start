@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './Start.css';
 import{arrowForward} from "ionicons/icons";
