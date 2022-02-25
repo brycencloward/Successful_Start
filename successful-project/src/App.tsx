@@ -3,9 +3,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Start';
 import WhichCLEP from './pages/WhichCLEP';
-import ApplyNow from './pages/ApplyNow';
 import CalendarSetup from './pages/CalendarSetup';
-import CollegeCreditQ from './pages/CollegeCreditQ';
 import CreditResults from './pages/CreditResults';
 import TypeWorkExp from './pages/TypeWorkExp';
 import WhichBusinessCLEP from './pages/WhichBusinessCLEP';
@@ -46,16 +44,8 @@ const App: React.FC = () => (
           <Redirect to="/home" />
         </Route>
 
-        <Route exact path="/ApplyNow">
-          <ApplyNow />
-        </Route>
-
         <Route exact path="/CalendarSetup">
           <CalendarSetup />
-        </Route>
-
-        <Route exact path="/CollegeCreditQ">
-          <CollegeCreditQ />
         </Route>
 
         <Route exact path="/CreditResults">
