@@ -1,14 +1,14 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import MainHeader from '../components/MainHeader';
 import './CalendarSetup.css';
 
 const CalendarSetup: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
+<MainHeader/>       
+   <IonToolbar>
           <IonTitle>Blank</IonTitle>
         </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
