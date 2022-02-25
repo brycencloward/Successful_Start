@@ -24,10 +24,10 @@ const CreditResults: React.FC = () => {
        </IonList>
        <IonList lines='none'>
          <IonItem>
-           <IonLabel className= "ion-text-wrap"> You could complete an Associate's Degree in Business Administration with just 52 more credits!</IonLabel>
+           <IonLabel className= "ion-text-wrap" class= "ion-text-center"> You could complete an Associate's Degree in Business Administration with just 52 more credits!</IonLabel>
            </IonItem>
            <IonItem>
-             <IonLabel className= "ion-text-wrap"> You could complete a Bachelor's Degree in Business Administration with just 111 more credits!</IonLabel>
+             <IonLabel className= "ion-text-wrap" class= "ion-text-center"> You could complete a Bachelor's Degree in Business Administration with just 111 more credits!</IonLabel>
              </IonItem>
        </IonList>
         </IonToolbar>
