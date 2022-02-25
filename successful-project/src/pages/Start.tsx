@@ -7,7 +7,7 @@ import MainHeader from '../components/MainHeader';
   
 const checkboxList = [
   { val: 'I have no substantial work experience-I am just graduating high school.', isChecked: false },
-  { val: 'I have multiple years of experience in a skilled work environment.', isChecked: true },
+  { val: 'I have multiple years of experience in a skilled work environment.', isChecked: false },
   { val: 'I have passed college credit tests (like CLEP) that will count towards my degree.', isChecked: true }
 ];
 const Home: React.FC = () => {
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
           </IonItem>
         ))}
       </IonList>
-          <IonButton color="tertiary" expand="block">
+          <IonButton color="tertiary" expand="block" routerLink='WhichTests'>
             
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
