@@ -25,7 +25,7 @@ const WhichCLEP: React.FC = () => {
           </IonItem>
         ))}
         </IonToolbar>
-        <IonButton color="tertiary" expand="block">
+        <IonButton color="tertiary" expand="block" routerLink='WhichBusinessCLEP'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
