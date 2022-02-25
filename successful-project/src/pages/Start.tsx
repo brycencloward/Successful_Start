@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         <IonTitle>What areas do you have experience that might be applied for college credit?</IonTitle>
 
         {checkboxList.map(({ val, isChecked }, i) => (
-          <IonItem key={i}>
+          <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>
