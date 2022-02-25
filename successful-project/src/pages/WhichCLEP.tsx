@@ -19,7 +19,7 @@ const WhichCLEP: React.FC = () => {
         <IonToolbar>
           <IonLabel className= "ion-text-wrap"> Please select the subjects in which you have completed CLEP examinations</IonLabel>
           {checkboxList.map(({ val, isChecked }, i) => (
-          <IonItem key={i}>
+          <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>

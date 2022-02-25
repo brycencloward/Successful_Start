@@ -18,7 +18,7 @@ const WhichTests: React.FC = () => {
         <IonToolbar>
           <IonLabel className= "ion-text-wrap"> Please select the type of test(s) you have completed and passed</IonLabel>
           {checkboxList.map(({ val, isChecked }, i) => (
-          <IonItem key={i}>
+          <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>
