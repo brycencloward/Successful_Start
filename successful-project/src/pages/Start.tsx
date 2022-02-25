@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import './ApplyNow.css';
+=======
+import React, { useState } from 'react';
+import './Start.css';
+>>>>>>> 9ac9943ba0d6fec6fc6f74b2ac59290081bd65b2
 import{arrowForward} from "ionicons/icons";
 import { IonContent, IonPage, IonTitle , IonCheckbox, IonList, IonItem, IonLabel, IonIcon, IonButton } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
@@ -26,7 +31,7 @@ const Home: React.FC = () => {
           </IonItem>
         ))}
       </IonList>
-          <IonButton color="tertiary" expand="block" routerLink='ApplyNow'>
+          <IonButton color="tertiary" expand="block">
             
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
