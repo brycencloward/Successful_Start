@@ -3,9 +3,16 @@ import { arrowForward } from 'ionicons/icons';
 import MainHeader from '../components/MainHeader';
 import './CreditResults.css';
 import { Browser } from '@capacitor/browser';
+import { CallNumber } from 'capacitor-call-number';
+
+const callNumber= async () => {
+await CallNumber.call({ number: '208-717-5813', bypassAppChooser: false });
+};
+
 const openCapacitorSite = async () => {
   await Browser.open({ url: 'https://lcsc.co1.qualtrics.com/jfe/form/SV_1YtbAryCRD9zWu2' });
 };
+
 
 const CreditResults: React.FC = () => {
   return (
@@ -34,12 +41,12 @@ const CreditResults: React.FC = () => {
              </IonItem>
        </IonList>
         </IonToolbar>
-        <IonButton color="tertiary" expand="block">
+        <IonButton color="tertiary" expand="block" onClick={openCapacitorSite}>
           <IonLabel>Setup an appointment online now!</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-        <IonButton color="tertiary" expand="block" onClick={openCapacitorSite}>
-          <IonLabel>Call to setup an appointment now!</IonLabel>
+        <IonButton color="tertiary" expand="block" onClick={callNumber}>
+          <IonLabel>Call to setup an appointment now!</IonLabel> 
           <IonIcon icon={arrowForward} />
         </IonButton>
       </IonHeader>

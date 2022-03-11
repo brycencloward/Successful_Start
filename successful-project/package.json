@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@awesome-cordova-plugins/call-number": "^5.40.0",
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
     "@capacitor/app": "1.1.0",
     "@capacitor/browser": "^1.0.7",
@@ -22,6 +23,8 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "call-number": "^1.0.1",
+    "capacitor-call-number": "^1.0.3",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "ionicons": "^5.4.0",
     "react": "^17.0.1",
