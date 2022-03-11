@@ -20,12 +20,12 @@ const Home: React.FC = () => {
     <IonPage>
  <MainHeader/>
     <IonContent>
-      <IonList>
-        <IonTitle>What areas do you have experience that might be applied for college credit?</IonTitle>
+      <IonList class= "ion-text-center">
+        <IonLabel className="ion-text-center">What areas do you have experience that might be applied for college credit?</IonLabel>
 
         {checkboxList.map(({ val, isChecked }, i) => (
           <IonItem class="ion-text-center" lines="none" key={i}>
-            <IonLabel>{val}</IonLabel>
+            <IonLabel className= "ion-text-wrap">{val}</IonLabel>
             <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
           </IonItem>
         ))}
