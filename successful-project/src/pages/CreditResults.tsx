@@ -2,7 +2,10 @@ import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLab
 import { arrowForward } from 'ionicons/icons';
 import MainHeader from '../components/MainHeader';
 import './CreditResults.css';
-
+import { Browser } from '@capacitor/browser';
+const openCapacitorSite = async () => {
+  await Browser.open({ url: 'https://lcsc.co1.qualtrics.com/jfe/form/SV_1YtbAryCRD9zWu2' });
+};
 
 const CreditResults: React.FC = () => {
   return (
@@ -35,7 +38,7 @@ const CreditResults: React.FC = () => {
           <IonLabel>Setup an appointment online now!</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-        <IonButton color="tertiary" expand="block">
+        <IonButton color="tertiary" expand="block" onClick={openCapacitorSite}>
           <IonLabel>Call to setup an appointment now!</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
