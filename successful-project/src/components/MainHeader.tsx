@@ -1,6 +1,11 @@
 import { IonHeader, IonToolbar, IonItem, IonButtons, IonButton, IonIcon, IonLabel } from '@ionic/react';
 import { person, search, menu } from 'ionicons/icons';
 import './MainHeader.css';
+import { Browser } from '@capacitor/browser';
+
+const openCapacitorSite = async () => {
+  await Browser.open({ url: 'https://www.lcsc.edu/' });
+};
 
 interface ContainerProps { }
 
@@ -9,19 +14,19 @@ const MainHeader: React.FC<ContainerProps> = () => {
     <IonHeader className="ion-no-border">
         <IonToolbar color="primary">
           <IonButtons class="navbar">
-            <IonButton class="nav-button">
+            <IonButton class="nav-button" onClick={openCapacitorSite}>
               <div className="button-stack">
                 <IonIcon icon={person} class="nav-icon"></IonIcon>
                 <IonLabel>For You</IonLabel>
               </div>
             </IonButton>
-            <IonButton class="nav-button">
+            <IonButton class="nav-button" onClick={openCapacitorSite}>
               <div className="button-stack">
                 <IonIcon icon={search} class="nav-icon"></IonIcon>
                 <IonLabel>Search</IonLabel>
               </div>
             </IonButton>
-            <IonButton class="nav-button">
+            <IonButton class="nav-button" onClick={openCapacitorSite}>
               <div className="button-stack">
                 <IonIcon icon={menu} class="nav-icon"></IonIcon>
                 <IonLabel>Menu</IonLabel>
