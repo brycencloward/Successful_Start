@@ -2,7 +2,15 @@ import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, 
 import './WorkExpCreditResults.css';
 import MainHeader from '../components/MainHeader';
 import { arrowForward } from 'ionicons/icons';
+import { CallNumber } from 'capacitor-call-number';
+import { Browser } from '@capacitor/browser';
 
+const callNumber= async () => {
+await CallNumber.call({ number: '208-717-5813', bypassAppChooser: false });
+};
+const openCapacitorSite = async () => {
+  await Browser.open({ url: 'https://www.lcsc.edu/admissions/apply' });
+};
 const WorkExpCreditResults: React.FC = () => {
   return (
     <IonPage>
@@ -29,10 +37,10 @@ const WorkExpCreditResults: React.FC = () => {
           </IonItem>
         </IonList>
 
-        <IonButton color="tertiary" expand="block" routerLink="CalendarSetup">
+        <IonButton color="tertiary" expand="block" onClick={openCapacitorSite}>
           <IonLabel>Set up an appointment online now!  <IonIcon icon={arrowForward} /></IonLabel>
         </IonButton>
-        <IonButton color="tertiary" expand="block" routerLink="CalendarSetup">
+        <IonButton color="tertiary" expand="block" onClick={callNumber}>
           <IonLabel>Call to setup an appointment now!  <IonIcon icon={arrowForward} /></IonLabel>
         </IonButton>
       </IonContent>
