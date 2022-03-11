@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
     "@capacitor/app": "1.1.0",
+    "@capacitor/browser": "^1.0.7",
     "@capacitor/core": "3.4.1",
     "@capacitor/haptics": "1.1.4",
     "@capacitor/keyboard": "1.2.2",
