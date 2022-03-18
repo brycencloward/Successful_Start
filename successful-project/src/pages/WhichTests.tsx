@@ -38,16 +38,16 @@ const WhichTests: React.FC = () => {
     //console.log("This is working!");
     //console.log(noExp, workExp, testsPassed);
     if(AP){
-      router.push("WhichCLEP", "forward", "push");
+      router.push("WhichAP", "forward", "push");
     }
     else if(CLEP) {
       router.push("WhichCLEP", "forward", "push");
     }
     else if(DSST){
-      router.push("WhichCLEP", "forward", "push");
+      router.push("WhichDSST", "forward", "push");
     }
     else if(IB){
-      router.push("WhichCLEP", "forward", "push");
+      router.push("WhichIB", "forward", "push");
     }
   };
 
