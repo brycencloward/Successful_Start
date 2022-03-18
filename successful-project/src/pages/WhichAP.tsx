@@ -17,73 +17,80 @@ const WhichAP: React.FC = () => {
           <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed AP examinations</IonLabel>
 
           <IonItem class="ion-text-center" lines="none">
+            <IonLabel>Arts (Huminaities)</IonLabel>
+            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
+              <IonSelectOption value="Art100" class="test">Art History</IonSelectOption>
+              <IonSelectOption value="Art111" class="test">Studio Art-Drawing</IonSelectOption>
+              <IonSelectOption value="Mus142">Music Theory</IonSelectOption>
+            </IonSelect>
+          </IonItem>
+
+          <IonItem class="ion-text-center" lines="none">
+            <IonLabel>English (Humanities)</IonLabel>
+            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
+              <IonSelectOption value="Engl101">English Lang/Comp</IonSelectOption>
+              <IonSelectOption value="Engl102">English Lang/Comp 2</IonSelectOption>
+              <IonSelectOption value="Engl175">English Lit/Comp</IonSelectOption>
+            </IonSelect>
+          </IonItem>
+
+          <IonItem class="ion-text-center" lines="none">
+            <IonLabel>History and Social Sciences</IonLabel>
+            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
+              <IonSelectOption value="POLS285">Comparative Gov't/Politics</IonSelectOption>
+              <IonSelectOption value="HISTelective">European History</IonSelectOption>
+              <IonSelectOption value="SSelective">Human Geography</IonSelectOption>
+            </IonSelect>
+          </IonItem>
+
+          <IonItem class="ion-text-center" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="FinAcc" class="test">Financial Accounting</IonSelectOption>
-              <IonSelectOption value="InfoSys" class="test">Information Systems</IonSelectOption>
-              <IonSelectOption value="IntroBusLaw">Introductory Business Law</IonSelectOption>
-              <IonSelectOption value="PrincManagement">Principles of Management</IonSelectOption>
-              <IonSelectOption value="PrincMarketing">Principles of Marketing</IonSelectOption>
+              <IonSelectOption value="Econ201">Macroeconomics I</IonSelectOption>
+              <IonSelectOption value="Econ202">Macroeconomics II</IonSelectOption>
+              <IonSelectOption value="Psyc101">Psychology</IonSelectOption>
+              <IonSelectOption value="Pols101">U.S Gov't/Politics</IonSelectOption>
+              <IonSelectOption value="Hist111">United States History</IonSelectOption>
+              <IonSelectOption value="Hist101">World History</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
-            <IonLabel>Composition & Literature</IonLabel>
+            <IonLabel>Math & Computer Science</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmericanLit">American Literature</IonSelectOption>
-              <IonSelectOption value="AILit">Analyzing and Interpreting Literature</IonSelectOption>
-              <IonSelectOption value="CollegeComp">College Composition</IonSelectOption>
-              <IonSelectOption value="EnglishLit">English Literature</IonSelectOption>
-              <IonSelectOption value="FCollegeComp">Freshman College Composition</IonSelectOption>
+              <IonSelectOption value="coreMath">Calculus AB</IonSelectOption>
+              <IonSelectOption value="Math170">Calculus BC</IonSelectOption>
+              <IonSelectOption value="Cs111">Computer Science A</IonSelectOption>
+              <IonSelectOption value="Cs108">Computer Science Principles</IonSelectOption>
+              <IonSelectOption value="Math153">Statistics</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
-            <IonLabel>World Languages</IonLabel>
+            <IonLabel>Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="SpanishI">Spanish Language - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishII">Spanish Language - Level II</IonSelectOption>
-              <IonSelectOption value="SpanishWritI">Spanish with Writing - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishWritII">Spanish with Writing - Level II</IonSelectOption>
-              <IonSelectOption value="FrenchI">French Language - Level I</IonSelectOption>
-              <IonSelectOption value="FrenchII">French Language - Level II</IonSelectOption>
-              <IonSelectOption value="GermanI">German Language - Level I</IonSelectOption>
-              <IonSelectOption value="GermanII">German Language - Level II</IonSelectOption>
+              <IonSelectOption value="Biol100">Biology</IonSelectOption>
+              <IonSelectOption value="Chem111">Chemistry</IonSelectOption>
+              <IonSelectOption value="Ns150">Environmental Science</IonSelectOption>
+              <IonSelectOption value="Phys111">Physics I</IonSelectOption>
+              <IonSelectOption value="Phys112">Physics II</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
-            <IonLabel>Science & Mathematics</IonLabel>
+            <IonLabel>World Languages & Culture</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="Bio">Biology</IonSelectOption>
-              <IonSelectOption value="Calc">Calculus</IonSelectOption>
-              <IonSelectOption value="Chem">Chemistry</IonSelectOption>
-              <IonSelectOption value="Alg">College Algebra</IonSelectOption>
-              <IonSelectOption value="Math">College Mathematics</IonSelectOption>
-              <IonSelectOption value="NatSci">Natural Sciences General Exam</IonSelectOption>
-              <IonSelectOption value="PreCalc">Pre Calculus</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>History & Social Sciences</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmerGov">American Government</IonSelectOption>
-              <IonSelectOption value="HisUSI">History of the United States I: Early Colonization to 1877</IonSelectOption>
-              <IonSelectOption value="HisUSII">History of the United States II: 1865 to the Present</IonSelectOption>
-              <IonSelectOption value="HumGrowthDev">Human Growth & Development</IonSelectOption>
-              <IonSelectOption value="IntroEdPsychology">Intro to Educational Psychology</IonSelectOption>
-              <IonSelectOption value="IntroPsychology">Intro to Psychology</IonSelectOption>
-              <IonSelectOption value="IntroSociology">Intro to Sociology</IonSelectOption>
-              <IonSelectOption value="MacroEcon">Macroeconomics</IonSelectOption>
-              <IonSelectOption value="MicroEcon">Microeconomics</IonSelectOption>
-              <IonSelectOption value="WestCivI">Western Civilization I: Ancient Near East to 1648</IonSelectOption>
-              <IonSelectOption value="WestCivII">Western Civilivation II: 1648 to the Present</IonSelectOption>
+              <IonSelectOption value="SPAN102">Spanish Language & Culture I</IonSelectOption>
+              <IonSelectOption value="SPAN201">Spanish Language & Culture II</IonSelectOption>
+              <IonSelectOption value="SPAN202">Spanish Language & Culture III</IonSelectOption>
+              <IonSelectOption value="FL1FL2">Foreign Language I</IonSelectOption>
+              <IonSelectOption value="FL3">Foreign Language II</IonSelectOption>
+              <IonSelectOption value="FL4">Foreign Language III</IonSelectOption>
             </IonSelect>
           </IonItem>
 
         </IonToolbar>
-        <IonButton color="tertiary" expand="block" routerLink='WhichBusinessCLEP'>
+        <IonButton color="tertiary" expand="block" routerLink='CreditResults'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
