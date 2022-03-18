@@ -19,66 +19,67 @@ const WhichCLEP: React.FC = () => {
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="FinAcc" class="test">Financial Accounting</IonSelectOption>
-              <IonSelectOption value="InfoSys" class="test">Information Systems</IonSelectOption>
-              <IonSelectOption value="IntroBusLaw">Introductory Business Law</IonSelectOption>
-              <IonSelectOption value="PrincManagement">Principles of Management</IonSelectOption>
-              <IonSelectOption value="PrincMarketing">Principles of Marketing</IonSelectOption>
+              <IonSelectOption value="AcElec" class="test">Financial Accounting</IonSelectOption>
+              <IonSelectOption value="BUS221" class="test">Information Systems</IonSelectOption>
+              <IonSelectOption value="BUS365">Introductory Business Law</IonSelectOption>
+              <IonSelectOption value="BUS311">Principles of Management</IonSelectOption>
+              <IonSelectOption value="BUS321">Principles of Marketing</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>Composition & Literature</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmericanLit">American Literature</IonSelectOption>
-              <IonSelectOption value="AILit">Analyzing and Interpreting Literature</IonSelectOption>
-              <IonSelectOption value="CollegeComp">College Composition</IonSelectOption>
-              <IonSelectOption value="EnglishLit">English Literature</IonSelectOption>
-              <IonSelectOption value="FCollegeComp">Freshman College Composition</IonSelectOption>
+              <IonSelectOption value="CoreLit">American Literature</IonSelectOption>
+              <IonSelectOption value="ENGL175">Analyzing and Interpreting Literature</IonSelectOption>
+              <IonSelectOption value="ENGL101">College Composition</IonSelectOption>
+              <IonSelectOption value="CoreLit">English Literature</IonSelectOption>
+              <IonSelectOption value="ENGL101">Freshman College Composition</IonSelectOption>
+              <IonSelectOption value="CoreHum">Humanities General Exam</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>World Languages</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="SpanishI">Spanish Language - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishII">Spanish Language - Level II</IonSelectOption>
-              <IonSelectOption value="SpanishWritI">Spanish with Writing - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishWritII">Spanish with Writing - Level II</IonSelectOption>
-              <IonSelectOption value="FrenchI">French Language - Level I</IonSelectOption>
-              <IonSelectOption value="FrenchII">French Language - Level II</IonSelectOption>
-              <IonSelectOption value="GermanI">German Language - Level I</IonSelectOption>
-              <IonSelectOption value="GermanII">German Language - Level II</IonSelectOption>
+              <IonSelectOption value="SPAN102">Spanish Language - Level I</IonSelectOption>
+              <IonSelectOption value="SPAN201">Spanish Language - Level II</IonSelectOption>
+              <IonSelectOption value="SPAN102">Spanish with Writing - Level I</IonSelectOption>
+              <IonSelectOption value="SPAN202">Spanish with Writing - Level II</IonSelectOption>
+              <IonSelectOption value="FREN102">French Language - Level I</IonSelectOption>
+              <IonSelectOption value="FREN201">French Language - Level II</IonSelectOption>
+              <IonSelectOption value="GERM102">German Language - Level I</IonSelectOption>
+              <IonSelectOption value="GERM201">German Language - Level II</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>Science & Mathematics</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="Bio">Biology</IonSelectOption>
-              <IonSelectOption value="Calc">Calculus</IonSelectOption>
-              <IonSelectOption value="Chem">Chemistry</IonSelectOption>
-              <IonSelectOption value="Alg">College Algebra</IonSelectOption>
-              <IonSelectOption value="Math">College Mathematics</IonSelectOption>
-              <IonSelectOption value="NatSci">Natural Sciences General Exam</IonSelectOption>
-              <IonSelectOption value="PreCalc">Pre Calculus</IonSelectOption>
+              <IonSelectOption value="BIOL100">Biology</IonSelectOption>
+              <IonSelectOption value="MATH170">Calculus</IonSelectOption>
+              <IonSelectOption value="CHEM112">Chemistry</IonSelectOption>
+              <IonSelectOption value="MATH143">College Algebra</IonSelectOption>
+              <IonSelectOption value="MATH123">College Mathematics</IonSelectOption>
+              <IonSelectOption value="NS150">Natural Sciences General Exam</IonSelectOption>
+              <IonSelectOption value="MATH147">Pre Calculus</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>History & Social Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmerGov">American Government</IonSelectOption>
-              <IonSelectOption value="HisUSI">History of the United States I: Early Colonization to 1877</IonSelectOption>
-              <IonSelectOption value="HisUSII">History of the United States II: 1865 to the Present</IonSelectOption>
-              <IonSelectOption value="HumGrowthDev">Human Growth & Development</IonSelectOption>
-              <IonSelectOption value="IntroEdPsychology">Intro to Educational Psychology</IonSelectOption>
-              <IonSelectOption value="IntroPsychology">Intro to Psychology</IonSelectOption>
-              <IonSelectOption value="IntroSociology">Intro to Sociology</IonSelectOption>
-              <IonSelectOption value="MacroEcon">Macroeconomics</IonSelectOption>
-              <IonSelectOption value="MicroEcon">Microeconomics</IonSelectOption>
-              <IonSelectOption value="WestCivI">Western Civilization I: Ancient Near East to 1648</IonSelectOption>
-              <IonSelectOption value="WestCivII">Western Civilivation II: 1648 to the Present</IonSelectOption>
+              <IonSelectOption value="POLS101">American Government</IonSelectOption>
+              <IonSelectOption value="HIST111">History of the United States I: Early Colonization to 1877</IonSelectOption>
+              <IonSelectOption value="HIST112">History of the United States II: 1865 to the Present</IonSelectOption>
+              <IonSelectOption value="PSYC205">Human Growth & Development</IonSelectOption>
+              <IonSelectOption value="PSYC321">Intro to Educational Psychology</IonSelectOption>
+              <IonSelectOption value="PSYC101">Intro to Psychology</IonSelectOption>
+              <IonSelectOption value="SOC101">Intro to Sociology</IonSelectOption>
+              <IonSelectOption value="ECON201">Macroeconomics</IonSelectOption>
+              <IonSelectOption value="ECON202">Microeconomics</IonSelectOption>
+              <IonSelectOption value="HIST101">Western Civilization I: Ancient Near East to 1648</IonSelectOption>
+              <IonSelectOption value="HIST102">Western Civilivation II: 1648 to the Present</IonSelectOption>
             </IonSelect>
           </IonItem>
 
