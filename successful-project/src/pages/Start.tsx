@@ -42,13 +42,13 @@ const Home: React.FC = () => {
     //console.log("This is working!");
     //console.log(noExp, workExp, testsPassed);
     if(workExp && testsPassed){
-      router.push("WhichCLEP", "forward", "push");
+      router.push("WhichTests", "forward", "push");
     }
     else if(workExp) {
       router.push("TypeWorkExp", "forward", "push");
     }
     else if(testsPassed){
-      router.push("WhichCLEP", "forward", "push");
+      router.push("WhichTests", "forward", "push");
     }
     else{
       console.log("Opening external site");
