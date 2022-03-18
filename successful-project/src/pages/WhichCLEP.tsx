@@ -14,7 +14,7 @@ const WhichCLEP: React.FC = () => {
   <MainHeader/>
       <IonHeader class="ion-text-center">
         <IonToolbar>
-          <IonLabel className="ion-text-wrap">Please select the subjects in which you have completed CLEP examinations</IonLabel>
+          <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed CLEP examinations</IonLabel>
 
           <IonItem class="ion-text-center" lines="none">
             <IonLabel>Business</IonLabel>
