@@ -5,10 +5,12 @@
   "dependencies": {
     "@awesome-cordova-plugins/call-number": "^5.40.0",
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
+    "@capacitor-community/electron": "^4.1.0-next.2",
     "@capacitor/app": "1.1.0",
     "@capacitor/browser": "^1.0.7",
-    "@capacitor/core": "3.4.1",
+    "@capacitor/core": "^3.4.1",
     "@capacitor/haptics": "1.1.4",
+    "@capacitor/ios": "^3.4.3",
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/status-bar": "1.0.8",
     "@ionic-native/in-app-browser": "^5.36.0",
@@ -71,7 +73,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.4.1",
+    "@capacitor/cli": "^3.4.1",
     "react-scripts": "5.0.0"
   },
   "description": "An Ionic project"

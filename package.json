@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "react-scripts": "5.0.0"
+  },
+  "dependencies": {
+    "@capacitor/ios": "^3.4.3"
   }
 }
