@@ -1,5 +1,6 @@
-import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonTitle, IonToolbar, IonSelect } from '@ionic/react';
+import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonTitle, IonToolbar, IonSelect, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
+import { useState } from 'react';
 import MainHeader from '../components/MainHeader';
 import './WhichIB.css';
 
@@ -9,87 +10,121 @@ const options = {
 };
 
 const WhichIB: React.FC = () => {
+  const router = useIonRouter(); //needed to route programmatically
+
+  const [Bio, Biol180] = useState(false);
+  const [Bus, Bus101] = useState(false);
+  const [Chem, Chem111] = useState(false);
+  const [Cs, Cs111] = useState(false);
+  const [Econ, Econ201] = useState(false);
+  const [Env, Biol100] = useState(false);
+  const [Geog, Geog102] = useState(false);
+  const [Pols, Pols237] = useState(false);
+  const [WHist, Hist101] = useState(false);
+  const [USHist, Hist111] = useState(false);
+  const [AfHist, Hist333] = useState(false);
+  const [EuHist, Hist456] = useState(false);
+  const [InfT, Bus355] = useState(false);
+  const [Lang, Engl175] = useState(false);
+  const [Lang2, Engl101] = useState(false);
+  const [Math1, Math143] = useState(false);
+  const [Math2, Math147] = useState(false);
+  const [Math3, Math170] = useState(false);
+  const [MathStud, Math137] = useState(false);
+  const [Mus, Mus110] = useState(false);
+  const [Philo, Phil101] = useState(false);
+  const [Phys, Phys111] = useState(false);
+  const [Psyc, Psyc101] = useState(false);
+  const [Anth, Anth102] = useState(false);
+  const [Thea, Thea101] = useState(false);
+  const [Art, Art291] = useState(false);
+
+  const checkboxList = [
+    { val: "Biology", isChecked: false },
+    { val: "Business Management", isChecked: true },
+    { val: "Chemistry", isChecked: false },
+    { val: "Computer Science", isChecked: false },
+    { val: "Economics", isChecked: false },
+    { val: "Environmental Systems & Societies", isChecked: false },
+    { val: "Geography", isChecked: false },
+    { val: "Global Politics", isChecked: false },
+    { val: "History (Civilization)", isChecked: false },
+    { val: "History (US)", isChecked: false },
+    { val: "History (Africa)", isChecked: false },
+    { val: "History (Europe)", isChecked: false },
+    { val: "Information Technology", isChecked: false },
+    { val: "Language A: Literature", isChecked: false },
+    { val: "Language A: Language & Literature", isChecked: false },
+    { val: "Mathematics I", isChecked: false },
+    { val: "Mathematics II", isChecked: false },
+    { val: "Mathematics III", isChecked: false },
+    { val: "Mathematical Studies", isChecked: false },
+    { val: "Music", isChecked: false },
+    { val: "Philosophy", isChecked: false },
+    { val: "Physics", isChecked: false },
+    { val: "Psychology", isChecked: false },
+    { val: "Social & Cultural Anthropology", isChecked: false },
+    { val: "Theater", isChecked: false },
+    { val: "Visual Arts", isChecked: false },
+  ];
+
+  const checkBoxChange = (event: any) => {
+    if(event.target.value == "Biology"){
+      Biol180(event.target.checked);
+    }
+    else if(event.target.value == "Business Management"){
+      Bus101(event.target.checked);
+    }
+    else if(event.target.value == "Chemistry"){
+      Chem111(event.target.checked);
+    }
+    else if(event.target.value == "Computer Science"){
+      Cs111(event.target.checked);
+    }
+  }
+  const experienceCheck = (event: any) => {
+    //console.log("This is working!");
+    //console.log(noExp, workExp, testsPassed);
+    /*if(Biol){
+      router.push("WhichAP", "forward", "push");
+    }
+    else if(CLEP) {
+      router.push("WhichCLEP", "forward", "push");
+    }
+    else if(DSST){
+      router.push("WhichDSST", "forward", "push");
+    }
+    else if(IB){
+      router.push("WhichIB", "forward", "push");
+    }
+    */
+  };
+
   return (
     <IonPage>
   <MainHeader/>
-      <IonHeader class="ion-text-center">
+      <IonHeader class= "ion-text-center">
         <IonToolbar>
-          <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed IB examinations</IonLabel>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>Business</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="FinAcc" class="test">Financial Accounting</IonSelectOption>
-              <IonSelectOption value="InfoSys" class="test">Information Systems</IonSelectOption>
-              <IonSelectOption value="IntroBusLaw">Introductory Business Law</IonSelectOption>
-              <IonSelectOption value="PrincManagement">Principles of Management</IonSelectOption>
-              <IonSelectOption value="PrincMarketing">Principles of Marketing</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>Composition & Literature</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmericanLit">American Literature</IonSelectOption>
-              <IonSelectOption value="AILit">Analyzing and Interpreting Literature</IonSelectOption>
-              <IonSelectOption value="CollegeComp">College Composition</IonSelectOption>
-              <IonSelectOption value="EnglishLit">English Literature</IonSelectOption>
-              <IonSelectOption value="FCollegeComp">Freshman College Composition</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>World Languages</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="SpanishI">Spanish Language - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishII">Spanish Language - Level II</IonSelectOption>
-              <IonSelectOption value="SpanishWritI">Spanish with Writing - Level I</IonSelectOption>
-              <IonSelectOption value="SpanishWritII">Spanish with Writing - Level II</IonSelectOption>
-              <IonSelectOption value="FrenchI">French Language - Level I</IonSelectOption>
-              <IonSelectOption value="FrenchII">French Language - Level II</IonSelectOption>
-              <IonSelectOption value="GermanI">German Language - Level I</IonSelectOption>
-              <IonSelectOption value="GermanII">German Language - Level II</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>Science & Mathematics</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="Bio">Biology</IonSelectOption>
-              <IonSelectOption value="Calc">Calculus</IonSelectOption>
-              <IonSelectOption value="Chem">Chemistry</IonSelectOption>
-              <IonSelectOption value="Alg">College Algebra</IonSelectOption>
-              <IonSelectOption value="Math">College Mathematics</IonSelectOption>
-              <IonSelectOption value="NatSci">Natural Sciences General Exam</IonSelectOption>
-              <IonSelectOption value="PreCalc">Pre Calculus</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-center" lines="none">
-            <IonLabel>History & Social Sciences</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AmerGov">American Government</IonSelectOption>
-              <IonSelectOption value="HisUSI">History of the United States I: Early Colonization to 1877</IonSelectOption>
-              <IonSelectOption value="HisUSII">History of the United States II: 1865 to the Present</IonSelectOption>
-              <IonSelectOption value="HumGrowthDev">Human Growth & Development</IonSelectOption>
-              <IonSelectOption value="IntroEdPsychology">Intro to Educational Psychology</IonSelectOption>
-              <IonSelectOption value="IntroPsychology">Intro to Psychology</IonSelectOption>
-              <IonSelectOption value="IntroSociology">Intro to Sociology</IonSelectOption>
-              <IonSelectOption value="MacroEcon">Macroeconomics</IonSelectOption>
-              <IonSelectOption value="MicroEcon">Microeconomics</IonSelectOption>
-              <IonSelectOption value="WestCivI">Western Civilization I: Ancient Near East to 1648</IonSelectOption>
-              <IonSelectOption value="WestCivII">Western Civilivation II: 1648 to the Present</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
+          <IonLabel className= "ion-text-wrap"> Please select all the subjects in which you have completed IB examinations</IonLabel>
         </IonToolbar>
-        <IonButton color="tertiary" expand="block" routerLink='WhichBusinessCLEP'>
+      </IonHeader>
+      <IonContent fullscreen class= "scroll_content">
+
+          {checkboxList.map(({ val, isChecked }, i) => (
+          <IonItem class="ion-text-left" lines="none" key={i}>
+            <IonLabel>{val}</IonLabel>
+            <IonCheckbox slot="end" value={val} color="tertiary" onIonChange={(e) => checkBoxChange(e)}/>
+          </IonItem>
+        ))}
+        <IonButton color="tertiary" expand="block" onClick={(e) => experienceCheck(e)}>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
+      
         <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Blank</IonTitle>
+          </IonToolbar>
         </IonHeader>
       </IonContent>
     </IonPage>
