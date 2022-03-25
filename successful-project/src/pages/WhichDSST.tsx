@@ -15,8 +15,11 @@ const WhichDSST: React.FC = () => {
       <IonHeader class="ion-text-center">
         <IonToolbar>
           <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed DSST examinations</IonLabel>
-
-          <IonItem class="ion-text-center" lines="none">
+        </IonToolbar>
+      </IonHeader>
+          
+          <IonContent fullscreen class="scroll_page">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Arts & Comm</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="CoreDA" class="test">Art of the Western World</IonSelectOption>
@@ -24,7 +27,7 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>English</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="ENGL102">Principles of Advance English Composition</IonSelectOption>
@@ -32,7 +35,7 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Humanities</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="ID300D">Environmental Science (Environment and Humanity)</IonSelectOption>
@@ -41,7 +44,7 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Technology</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="LowElec">Computing & Information Technology</IonSelectOption>
@@ -50,7 +53,7 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="GNBT270">Business Ethics & Society</IonSelectOption>
@@ -60,7 +63,7 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Math</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="GNBT202">Business Mathematics</IonSelectOption>
@@ -68,20 +71,18 @@ const WhichDSST: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Social Science</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="HRPT185">Organizational Behavior</IonSelectOption>
             </IonSelect>
           </IonItem>
 
-        </IonToolbar>
         <IonButton color="tertiary" expand="block" routerLink='CreditResults'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
+
         <IonHeader collapse="condense">
         </IonHeader>
       </IonContent>

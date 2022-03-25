@@ -15,8 +15,10 @@ const WhichCLEP: React.FC = () => {
       <IonHeader class="ion-text-center">
         <IonToolbar>
           <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed CLEP examinations</IonLabel>
-
-          <IonItem class="ion-text-center" lines="none">
+        </IonToolbar>
+      </IonHeader>
+          <IonContent fullscreen class="scroll_content">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="AcElec" class="test">Financial Accounting</IonSelectOption>
@@ -27,7 +29,7 @@ const WhichCLEP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Composition & Literature</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="CoreLit">American Literature</IonSelectOption>
@@ -39,7 +41,7 @@ const WhichCLEP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>World Languages</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="SPAN102">Spanish Language - Level I</IonSelectOption>
@@ -53,7 +55,7 @@ const WhichCLEP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Science & Mathematics</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="BIOL100">Biology</IonSelectOption>
@@ -66,7 +68,7 @@ const WhichCLEP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>History & Social Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="POLS101">American Government</IonSelectOption>
@@ -82,14 +84,11 @@ const WhichCLEP: React.FC = () => {
               <IonSelectOption value="HIST102">Western Civilivation II: 1648 to the Present</IonSelectOption>
             </IonSelect>
           </IonItem>
-
-        </IonToolbar>
-        <IonButton color="tertiary" expand="block" routerLink='WhichBusinessCLEP'>
+        <IonButton color="tertiary" expand="block" routerLink='CreditResults'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
+
         <IonHeader collapse="condense">
         </IonHeader>
       </IonContent>

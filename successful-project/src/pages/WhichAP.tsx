@@ -15,8 +15,10 @@ const WhichAP: React.FC = () => {
       <IonHeader class="ion-text-center">
         <IonToolbar>
           <IonLabel className="ion-text-wrap">Please select all the subjects in which you have completed AP examinations</IonLabel>
-
-          <IonItem class="ion-text-center" lines="none">
+        </IonToolbar>
+      </IonHeader>
+          <IonContent fullscreen class="scroll_content">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Arts (Huminaities)</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="Art100" class="test">Art History</IonSelectOption>
@@ -25,7 +27,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>English (Humanities)</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="Engl101">English Lang/Comp</IonSelectOption>
@@ -34,7 +36,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>History and Social Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="POLS285">Comparative Gov't/Politics</IonSelectOption>
@@ -43,7 +45,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="Econ201">Macroeconomics I</IonSelectOption>
@@ -55,7 +57,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Math & Computer Science</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="coreMath">Calculus AB</IonSelectOption>
@@ -66,7 +68,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="Biol100">Biology</IonSelectOption>
@@ -77,7 +79,7 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-          <IonItem class="ion-text-center" lines="none">
+          <IonItem class="ion-text-left" lines="none">
             <IonLabel>World Languages & Culture</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
               <IonSelectOption value="SPAN102">Spanish Language & Culture I</IonSelectOption>
@@ -89,13 +91,11 @@ const WhichAP: React.FC = () => {
             </IonSelect>
           </IonItem>
 
-        </IonToolbar>
         <IonButton color="tertiary" expand="block" routerLink='CreditResults'>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
+
         <IonHeader collapse="condense">
         </IonHeader>
       </IonContent>
