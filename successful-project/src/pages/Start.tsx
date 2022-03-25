@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Start.css';
 import{arrowForward} from "ionicons/icons";
-import { IonContent, IonPage, IonTitle , IonCheckbox, IonList, IonItem, IonLabel, IonIcon, IonButton, CheckboxChangeEventDetail } from '@ionic/react';
+import { IonContent, IonPage, IonTitle , IonCheckbox, IonList, IonItem, IonLabel, IonIcon, IonButton, CheckboxChangeEventDetail, IonHeader, IonToolbar } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
 import { Browser } from '@capacitor/browser';
 import WorkExpCreditResults from './WorkExpCreditResults';
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   const [testsPassed, hasTestsPassed] = useState(false);
 
   const checkboxList = [
-    { val: "NoExp", text: 'I have no substantial work experience-I am just graduating high school.'},
+    { val: "NoExp", text: 'I have no substantial work experience/ I am just graduating high school.'},
     { val: "WorkExp", text: 'I have multiple years of experience in a skilled work environment.'},
     { val: "TestsPassed", text: 'I have passed college credit tests (like CLEP) that will count towards my degree.'}
   ];
@@ -60,17 +60,19 @@ const Home: React.FC = () => {
     
     <IonPage>
  <MainHeader/>
-    <IonContent>
-      <IonList class= "ion-text-center">
-        <IonLabel className="ion-text-center">What areas do you have experience that might be applied for college credit?</IonLabel>
-
+    <IonHeader class="ion-text-center">
+      <IonToolbar>
+        <IonLabel className="ion-text-wrap">What areas do you have experience that might be applied for college credit?</IonLabel>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent fullscreen class="scroll_content">
         {checkboxList.map(({ val, text }, i) => (
-          <IonItem class="ion-text-center" lines="none" key={i}>
+          <IonItem class="ion-text-left" lines="none" key={i}>
             <IonLabel className= "ion-text-wrap">{text}</IonLabel>
             <IonCheckbox slot="end" value={val} color="tertiary" onIonChange={(e) => checkBoxChange(e)}/>
           </IonItem>
         ))}
-      </IonList>
+      
           <IonButton color="tertiary" expand="block" onClick={(e) => experienceCheck(e)}>
             
           <IonLabel>Next</IonLabel>
