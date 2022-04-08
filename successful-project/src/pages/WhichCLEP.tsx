@@ -32,11 +32,11 @@ const WhichCLEP: React.FC = () => {
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Composition & Literature</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="CoreLit">American Literature</IonSelectOption>
+              <IonSelectOption value="CoreLitI">American Literature</IonSelectOption>
               <IonSelectOption value="ENGL175">Analyzing and Interpreting Literature</IonSelectOption>
-              <IonSelectOption value="ENGL101">College Composition</IonSelectOption>
-              <IonSelectOption value="CoreLit">English Literature</IonSelectOption>
-              <IonSelectOption value="ENGL101">Freshman College Composition</IonSelectOption>
+              <IonSelectOption value="ENGL101I">College Composition</IonSelectOption>
+              <IonSelectOption value="CoreLitII">English Literature</IonSelectOption>
+              <IonSelectOption value="ENGL101II">Freshman College Composition</IonSelectOption>
               <IonSelectOption value="CoreHum">Humanities General Exam</IonSelectOption>
             </IonSelect>
           </IonItem>
