@@ -6,6 +6,7 @@
     "@awesome-cordova-plugins/call-number": "^5.40.0",
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
     "@capacitor-community/electron": "^4.1.0-next.2",
+    "@capacitor/android": "3.4.3",
     "@capacitor/app": "1.1.0",
     "@capacitor/browser": "^1.0.7",
     "@capacitor/core": "^3.4.1",
