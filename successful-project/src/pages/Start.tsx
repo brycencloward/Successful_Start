@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Start.css';
 import{arrowForward} from "ionicons/icons";
-import { IonContent, IonPage, IonTitle , IonCheckbox, IonList, IonItem, IonLabel, IonIcon, IonButton, CheckboxChangeEventDetail, IonHeader, IonToolbar } from '@ionic/react';
+import { IonContent, IonPage, IonCheckbox, IonItem, IonLabel, IonIcon, IonButton, IonHeader, IonToolbar } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
 import { Browser } from '@capacitor/browser';
 import WorkExpCreditResults from './WorkExpCreditResults';
 import { useIonRouter } from '@ionic/react';
-  
+
+//context
+import { MyGlobalContext, updateContext} from '../App';
+
+//const { data, setData } = useContext(MyGlobalContext);
 
 const openCapacitorSite = async () => {
   await Browser.open({ url: 'https://www.lcsc.edu/admissions/apply' });
 };
 
 const Home: React.FC = () => {
+
+  //console.log(useContext(MyGlobalContext).data);
+  const currentContext = useContext(MyGlobalContext);
+  const { data, setData } = useContext(MyGlobalContext);
+  //setData("Different test data");
+  //setData(updateContext(useContext(MyGlobalContext), "New course", "New equiv", 3, true));
+  //console.log(updateContext(useContext(MyGlobalContext), "New course", "New equiv", 3, true));
+  //console.log(useContext(MyGlobalContext).data)
+  //setData(updateContext(useContext(MyGlobalContext)));
+  //const [data, setData] = useState({userData: "Different test data"});
+  //console.log(useContext(MyGlobalContext).data);
 
   const router = useIonRouter(); //needed to route programmatically
 
@@ -42,12 +57,15 @@ const Home: React.FC = () => {
     //console.log("This is working!");
     //console.log(noExp, workExp, testsPassed);
     if(workExp && testsPassed){
+      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("WhichTests", "forward", "push");
     }
-    else if(workExp) {
+    else if(workExp){
+      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("TypeWorkExp", "forward", "push");
     }
     else if(testsPassed){
+      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("WhichTests", "forward", "push");
     }
     else{
@@ -59,7 +77,7 @@ const Home: React.FC = () => {
   return (
     
     <IonPage>
- <MainHeader/>
+    <MainHeader/>
     <IonHeader class="ion-text-center">
       <IonToolbar>
         <IonLabel className="ion-text-wrap">What areas do you have experience that might be applied for college credit?</IonLabel>

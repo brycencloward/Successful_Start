@@ -1,10 +1,19 @@
 import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import MainHeader from '../components/MainHeader';
 import './WhichTests.css';
 
+//context
+import { MyGlobalContext } from '../App';
+
 const WhichTests: React.FC = () => {
+
+  //console.log(AppContext.pageData)
+  console.log(useContext(MyGlobalContext).data);
+  const { data, setData } = useContext(MyGlobalContext);
+  //setData("Another test data");
+  console.log(useContext(MyGlobalContext).data);
 
   const router = useIonRouter(); //needed to route programmatically
 
@@ -34,9 +43,8 @@ const WhichTests: React.FC = () => {
       IBExam(event.target.checked);
     }
   }
-  const experienceCheck = (event: any) => {
-    //console.log("This is working!");
-    //console.log(noExp, workExp, testsPassed);
+
+  const testCheck = (event: any) => {
     if(AP){
       router.push("WhichAP", "forward", "push");
     }
@@ -50,31 +58,26 @@ const WhichTests: React.FC = () => {
       router.push("WhichIB", "forward", "push");
     }
   };
-
+  
   return (
     <IonPage>
   <MainHeader/>
       <IonHeader class= "ion-text-center">
         <IonToolbar>
           <IonLabel className= "ion-text-wrap"> Please select the type of test(s) you have completed and passed</IonLabel>
-          {checkboxList.map(({ val, isChecked }, i) => (
+          {checkboxList.map(({ val }, i) => (
           <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} color="tertiary" onIonChange={(e) => checkBoxChange(e)}/>
           </IonItem>
         ))}
         </IonToolbar>
-        <IonButton color="tertiary" expand="block" onClick={(e) => experienceCheck(e)}>
+        <IonButton color="tertiary" expand="block" onClick={(e) => testCheck(e)}>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
       </IonContent>
     </IonPage>
   );

@@ -33,66 +33,130 @@ import WhichAP from './pages/WhichAP';
 import WhichDSST from './pages/WhichDSST';
 import WhichIB from './pages/WhichIB';
 
+import { createContext, useContext, useMemo, useState } from 'react';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+//export interface dataArray {
+//  course: string, equiv: string, credits: number, core: boolean
+//}
 
-        <Route exact path="/CalendarSetup">
-          <CalendarSetup />
-        </Route>
+export interface DataInterface {
+  // set the type of state you want to handle with context e.g.
+  courses: {course: string, equiv: string, credits: number, core: boolean}[]
+  //page: string,
+  //answers: {course: string, equiv: string, credits: number, core: boolean}[]
+}
 
-        <Route exact path="/CreditResults">
-          <CreditResults />
-        </Route>
+export interface ContextInterface {
+  data: {course: string, equiv: string, credits: number, core: boolean}[]
+  //setData: 
+}
 
-        <Route exact path="/TypeWorkExp">
-          <TypeWorkExp />
-        </Route>
+//var testData: DataInterface = {page: "Start", courses: {course: "", equiv: null, credits: null, core: null}};
 
-        <Route exact path="/WhichBusinessCLEP">
-          <WhichBusinessCLEP />
-        </Route>
+//set an empty object as default state
+export var Context = createContext<ContextInterface | null>(null);
+  
+//Provider in your app
 
-        <Route exact path="/WhichCLEP">
-          <WhichCLEP />
-        </Route>
+var start:ContextInterface = {
+  data: []
+}
 
-        <Route exact path="/WhichAP">
-          <WhichAP />
-        </Route>
+export type GlobalData = {
+  data: ContextInterface
+  setData:(c: ContextInterface) => void
+  //pages: string[]
+  //setPages:(c: string[]) => void
+}
+export const MyGlobalContext = createContext<GlobalData>({
+  data: start,
+  setData: () => {}
+})
 
-        <Route exact path="/WhichDSST">
-          <WhichDSST />
-        </Route>
+//update function
+export const updateContext = (newContext: GlobalData, newCourse: string, newEquiv: string, newCredits: number, newCore: boolean) => {
+  var check = {
+    course: newCourse,
+    equiv: newEquiv,
+    credits: newCredits,
+    core: newCore
+  }
 
-        <Route exact path="/WhichIB">
-          <WhichIB />
-        </Route>
+  newContext.data.data.push(check);
+  return(newContext.data);
+}
 
-        <Route exact path="/WhichTests">
-          <WhichTests />
-        </Route>
+const App: React.FC = () => {
+  //const [data, updateData] = useState({userData: "Test data"});
 
-        <Route exact path="/WorkExpCreditResults">
-          <WorkExpCreditResults />
-        </Route>
-        
-        <Route exact path="/WorkExpStart">
-          <WorkExpStart />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+  var DataInterface = null;
+  const [data, setData] = useState(start);
+  const value = useMemo(() => ({ data, setData }), [data]);
+
+  const appContext = useContext(MyGlobalContext);
+
+  return (
+    <MyGlobalContext.Provider value={{ data, setData }}>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+
+          <Route exact path="/CalendarSetup">
+            <CalendarSetup />
+          </Route>
+
+          <Route exact path="/CreditResults">
+            <CreditResults />
+          </Route>
+
+          <Route exact path="/TypeWorkExp">
+            <TypeWorkExp />
+          </Route>
+
+          <Route exact path="/WhichBusinessCLEP">
+            <WhichBusinessCLEP />
+          </Route>
+
+          <Route exact path="/WhichCLEP">
+            <WhichCLEP />
+          </Route>
+
+          <Route exact path="/WhichAP">
+            <WhichAP />
+          </Route>
+
+          <Route exact path="/WhichDSST">
+            <WhichDSST />
+          </Route>
+
+          <Route exact path="/WhichIB">
+            <WhichIB />
+          </Route>
+
+          <Route exact path="/WhichTests">
+            <WhichTests />
+          </Route>
+
+          <Route exact path="/WorkExpCreditResults">
+            <WorkExpCreditResults />
+          </Route>
+          
+          <Route exact path="/WorkExpStart">
+            <WorkExpStart />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+    </MyGlobalContext.Provider>
+  );
+};
 
 export default App;

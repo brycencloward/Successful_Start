@@ -21,8 +21,8 @@ const WhichCLEP: React.FC = () => {
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Business</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="AcElec" class="test">Financial Accounting</IonSelectOption>
-              <IonSelectOption value="BUS221" class="test">Information Systems</IonSelectOption>
+              <IonSelectOption value="AcElec">Financial Accounting</IonSelectOption>
+              <IonSelectOption value="BUS221">Information Systems</IonSelectOption>
               <IonSelectOption value="BUS365">Introductory Business Law</IonSelectOption>
               <IonSelectOption value="BUS311">Principles of Management</IonSelectOption>
               <IonSelectOption value="BUS321">Principles of Marketing</IonSelectOption>

@@ -22,8 +22,8 @@ const WhichDSST: React.FC = () => {
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Arts & Comm</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true}>
-              <IonSelectOption value="CoreDA" class="test">Art of the Western World</IonSelectOption>
-              <IonSelectOption value="COMM204" class="test">Principles of Public Speaking</IonSelectOption>
+              <IonSelectOption value="CoreDA">Art of the Western World</IonSelectOption>
+              <IonSelectOption value="COMM204">Principles of Public Speaking</IonSelectOption>
             </IonSelect>
           </IonItem>
 
