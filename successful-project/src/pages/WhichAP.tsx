@@ -1,9 +1,8 @@
-import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonTitle, IonToolbar, IonSelect, useIonRouter, IonPopover } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonToolbar, IonSelect, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import { useContext, useState } from 'react';
 import { MyGlobalContext, updateContext } from '../App';
 import MainHeader from '../components/MainHeader';
-import './WhichAP.css';
 
 //custom popover interface options
 const options = {
@@ -15,7 +14,6 @@ const WhichAP: React.FC = () => {
   const [arts, setArts] = useState<string[]>([]);
   const [english, setEnglish] = useState<string[]>([]);
   const [historySocial, setHistorySocial] = useState<string[]>([]);
-  const [business, setBusiness] = useState<string[]>([]);
   const [mathCompsci, setMathCompsci] = useState<string[]>([]);
   const [sciences, setSciences] = useState<string[]>([]);
   const [languageCulture, setLanguageCulture] = useState<string[]>([]);
@@ -27,7 +25,7 @@ const WhichAP: React.FC = () => {
 
   const nextPage = () => {
     //loop for each state
-    let states = [arts, english, historySocial, business, mathCompsci, sciences, languageCulture];
+    let states = [arts, english, historySocial, mathCompsci, sciences, languageCulture];
     states.forEach(function (all){
       all.forEach(function (value){
         //parse different values
@@ -77,12 +75,6 @@ const WhichAP: React.FC = () => {
               <IonSelectOption value="Comparative Gov't/Politics, POLS-285, 3, Yes">Comparative Gov't/Politics</IonSelectOption>
               <IonSelectOption value="European History, HIST-Elective, 3, No">European History</IonSelectOption>
               <IonSelectOption value="Human Geography, SS-Elective, 3, No">Human Geography</IonSelectOption>
-            </IonSelect>
-          </IonItem>
-
-          <IonItem class="ion-text-left" lines="none">
-            <IonLabel>Business</IonLabel>
-            <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setBusiness(e.detail.value)}>
               <IonSelectOption value="Macroeconomics, ECON-201, 3, Yes">Macroeconomics I</IonSelectOption>
               <IonSelectOption value="Microeconomics, ECON-202, 3, Yes">Microeconomics II</IonSelectOption>
               <IonSelectOption value="Psychology, PSYC-101, 3, Yes">Psychology</IonSelectOption>

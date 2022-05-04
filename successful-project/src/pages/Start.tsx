@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import './Start.css';
 import{arrowForward} from "ionicons/icons";
 import { IonContent, IonPage, IonCheckbox, IonItem, IonLabel, IonIcon, IonButton, IonHeader, IonToolbar } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
@@ -38,7 +37,7 @@ const Home: React.FC = () => {
   const checkboxList = [
     { val: "NoExp", text: 'I have no substantial work experience/ I am just graduating high school.'},
     { val: "WorkExp", text: 'I have multiple years of experience in a skilled work environment.'},
-    { val: "TestsPassed", text: 'I have passed college credit tests (like CLEP) that will count towards my degree.'}
+    { val: "TestsPassed", text: 'I have passed college credit tests (like CLEP, AP) that will count towards my degree.'}
   ];
 
   const checkBoxChange = (event: any) => {
@@ -57,15 +56,12 @@ const Home: React.FC = () => {
     //console.log("This is working!");
     //console.log(noExp, workExp, testsPassed);
     if(workExp && testsPassed){
-      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("WhichTests", "forward", "push");
     }
     else if(workExp){
-      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("TypeWorkExp", "forward", "push");
     }
     else if(testsPassed){
-      //setData(updateContext(currentContext, "New course", "New equiv", 3, true));
       router.push("WhichTests", "forward", "push");
     }
     else{

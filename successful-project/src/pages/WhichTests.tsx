@@ -2,7 +2,6 @@ import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLab
 import { arrowForward } from 'ionicons/icons';
 import { useState, useEffect, useContext } from 'react';
 import MainHeader from '../components/MainHeader';
-import './WhichTests.css';
 
 //context
 import { MyGlobalContext } from '../App';

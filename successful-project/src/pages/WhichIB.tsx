@@ -2,7 +2,6 @@ import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLab
 import { arrowForward } from 'ionicons/icons';
 import { useState } from 'react';
 import MainHeader from '../components/MainHeader';
-import './WhichIB.css';
 
 //custom popover interface options
 const options = {
@@ -40,32 +39,32 @@ const WhichIB: React.FC = () => {
   const [Art, Art291] = useState(false);
 
   const checkboxList = [
-    { val: "Biology", isChecked: false },
-    { val: "Business Management", isChecked: true },
-    { val: "Chemistry", isChecked: false },
-    { val: "Computer Science", isChecked: false },
-    { val: "Economics", isChecked: false },
-    { val: "Environmental Systems & Societies", isChecked: false },
-    { val: "Geography", isChecked: false },
-    { val: "Global Politics", isChecked: false },
-    { val: "History (Civilization)", isChecked: false },
-    { val: "History (US)", isChecked: false },
-    { val: "History (Africa)", isChecked: false },
-    { val: "History (Europe)", isChecked: false },
-    { val: "Information Technology", isChecked: false },
-    { val: "Language A: Literature", isChecked: false },
-    { val: "Language A: Language & Literature", isChecked: false },
-    { val: "Mathematics I", isChecked: false },
-    { val: "Mathematics II", isChecked: false },
-    { val: "Mathematics III", isChecked: false },
-    { val: "Mathematical Studies", isChecked: false },
-    { val: "Music", isChecked: false },
-    { val: "Philosophy", isChecked: false },
-    { val: "Physics", isChecked: false },
-    { val: "Psychology", isChecked: false },
-    { val: "Social & Cultural Anthropology", isChecked: false },
-    { val: "Theater", isChecked: false },
-    { val: "Visual Arts", isChecked: false },
+    { val: "Biology" },
+    { val: "Business Management" },
+    { val: "Chemistry" },
+    { val: "Computer Science" },
+    { val: "Economics" },
+    { val: "Environmental Systems & Societies" },
+    { val: "Geography" },
+    { val: "Global Politics" },
+    { val: "History (Civilization)" },
+    { val: "History (US)" },
+    { val: "History (Africa)" },
+    { val: "History (Europe)" },
+    { val: "Information Technology" },
+    { val: "Language A: Literature" },
+    { val: "Language A: Language & Literature" },
+    { val: "Mathematics I" },
+    { val: "Mathematics II" },
+    { val: "Mathematics III" },
+    { val: "Mathematical Studies" },
+    { val: "Music" },
+    { val: "Philosophy" },
+    { val: "Physics" },
+    { val: "Psychology" },
+    { val: "Social & Cultural Anthropology" },
+    { val: "Theater" },
+    { val: "Visual Arts" },
   ];
 
   const checkBoxChange = (event: any) => {
@@ -102,7 +101,7 @@ const WhichIB: React.FC = () => {
 
   return (
     <IonPage>
-  <MainHeader/>
+    <MainHeader/>
       <IonHeader class= "ion-text-center">
         <IonToolbar>
           <IonLabel className= "ion-text-wrap"> Please select all the subjects in which you have completed IB examinations</IonLabel>
@@ -110,7 +109,7 @@ const WhichIB: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen class= "scroll_content">
 
-          {checkboxList.map(({ val, isChecked }, i) => (
+          {checkboxList.map(({ val }, i) => (
           <IonItem class="ion-text-left" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
             <IonCheckbox slot="end" value={val} color="tertiary" onIonChange={(e) => checkBoxChange(e)}/>

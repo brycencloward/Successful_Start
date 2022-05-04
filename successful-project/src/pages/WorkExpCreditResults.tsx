@@ -1,5 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './WorkExpCreditResults.css';
+import { IonButton, IonContent, IonIcon, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
 import { arrowForward } from 'ionicons/icons';
 import { CallNumber } from 'capacitor-call-number';

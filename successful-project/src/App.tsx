@@ -3,13 +3,11 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Start';
 import WhichCLEP from './pages/WhichCLEP';
-import CalendarSetup from './pages/CalendarSetup';
 import CreditResults from './pages/CreditResults';
 import TypeWorkExp from './pages/TypeWorkExp';
 import WhichBusinessCLEP from './pages/WhichBusinessCLEP';
 import WhichTests from './pages/WhichTests';
 import WorkExpCreditResults from './pages/WorkExpCreditResults';
-import WorkExpStart from './pages/WorkExpStart';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -109,10 +107,6 @@ const App: React.FC = () => {
             <Redirect to="/home" />
           </Route>
 
-          <Route exact path="/CalendarSetup">
-            <CalendarSetup />
-          </Route>
-
           <Route exact path="/CreditResults">
             <CreditResults />
           </Route>
@@ -148,10 +142,7 @@ const App: React.FC = () => {
           <Route exact path="/WorkExpCreditResults">
             <WorkExpCreditResults />
           </Route>
-          
-          <Route exact path="/WorkExpStart">
-            <WorkExpStart />
-          </Route>
+
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

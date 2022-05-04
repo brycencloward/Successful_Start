@@ -1,7 +1,6 @@
 import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import MainHeader from '../components/MainHeader';
-import './WhichBusinessCLEP.css';
 
 const checkboxList = [
   { val: 'Financial Accounting', isChecked: false },

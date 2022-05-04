@@ -1,14 +1,13 @@
-import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonIcon, IonItem, IonLabel, IonList, IonPage } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import MainHeader from '../components/MainHeader';
-import './CreditResults.css';
 import { Browser } from '@capacitor/browser';
 import { CallNumber } from 'capacitor-call-number';
 import { MyGlobalContext } from '../App';
 import { useContext } from 'react';
 
 const callNumber= async () => {
-await CallNumber.call({ number: '208-717-5813', bypassAppChooser: false });
+  await CallNumber.call({ number: '208-717-5813', bypassAppChooser: false });
 };
 
 const openCapacitorSite = async () => {
@@ -27,7 +26,7 @@ const CreditResults: React.FC = () => {
   return (
     <IonPage>
     <MainHeader/>
-      <IonHeader class= "ion-text-center">
+      <IonContent fullscreen class= "ion-text-center scroll_content">
       <IonLabel className= "ion-text-wrap"> Based on your selections, it would appear that you can recieve credit for the following classes:</IonLabel>
         <IonList lines="none">
         {finalData.data.map(({equiv, credits}, i) => (
@@ -52,8 +51,6 @@ const CreditResults: React.FC = () => {
           <IonLabel>Call to setup an appointment now!</IonLabel> 
           <IonIcon icon={arrowForward} />
         </IonButton>
-      </IonHeader>
-      <IonContent fullscreen>
       </IonContent>
     </IonPage>
   );
