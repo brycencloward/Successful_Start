@@ -1,7 +1,7 @@
 import { IonButton, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonToolbar, IonSelect, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import { useContext, useState } from 'react';
-import { MyGlobalContext, updateContext } from '../App';
+import { MyGlobalContext, updateData } from '../App';
 import MainHeader from '../components/MainHeader';
 
 //custom popover interface options
@@ -33,12 +33,31 @@ const WhichAP: React.FC = () => {
         var core:boolean;
         if(parsed[3] == "Yes"){core = true;}
         else{core = false;}
-        //console.log(parsed);
-        setData(updateContext(currentContext, parsed[0], parsed[1], Number(parsed[2]), core));
+        var newData = { equiv: parsed[0], credits: Number(parsed[1]), core: core };
+        //prevent duplicates
+        if(!(currentContext.data.data.includes(newData))) {
+          setData(updateData(currentContext, parsed[0], Number(parsed[1]), core));
+        }
       });
     });
     console.log(currentContext.data);
-    router.push("CreditResults", "forward", "push");
+    if(currentContext.data.pages.includes("WhichCLEP")){
+      router.push("WhichCLEP", "forward", "push");
+    }
+    else if(currentContext.data.pages.includes("WhichDSST")){
+      router.push("WhichDSST", "forward", "push");
+    }
+    else if(currentContext.data.pages.includes("WhichIB")){
+      router.push("WhichIB", "forward", "push");
+    }
+    else{
+      if(currentContext.data.pages.includes("TypeWorkExp")){
+        router.push("TypeWorkExp", "forward", "push");
+      }
+      else{
+        router.push("CreditResults", "forward", "push");
+      }
+    }
   };
 
   return (
@@ -54,67 +73,67 @@ const WhichAP: React.FC = () => {
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Arts (Humanities)</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setArts(e.detail.value)}>
-              <IonSelectOption value="Art History, ART-100, 3, Yes">Art History</IonSelectOption>
-              <IonSelectOption value="Studio Art-Drawing, ART-111, 3, No">Studio Art-Drawing</IonSelectOption>
-              <IonSelectOption value="Music Theory, MUS-142, 3, No">Music Theory</IonSelectOption>
+              <IonSelectOption value="ART-100, 3, Yes">Art History</IonSelectOption>
+              <IonSelectOption value="ART-111, 3, No">Studio Art-Drawing</IonSelectOption>
+              <IonSelectOption value="MUS-142, 3, No">Music Theory</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>English (Humanities)</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setEnglish(e.detail.value)}>
-              <IonSelectOption value="English Lang/Comp, ENGL-101, 3, Yes">English Lang/Comp</IonSelectOption>
-              <IonSelectOption value="English Lang/Comp 2, ENGL-102, 3, Yes">English Lang/Comp 2</IonSelectOption>
-              <IonSelectOption value="English Lit/Comp, ENGL-175, 3, Yes">English Lit/Comp</IonSelectOption>
+              <IonSelectOption value="ENGL-101, 3, Yes">English Lang/Comp</IonSelectOption>
+              <IonSelectOption value="ENGL-102, 3, Yes">English Lang/Comp 2</IonSelectOption>
+              <IonSelectOption value="ENGL-175, 3, Yes">English Lit/Comp</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>History and Social Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setHistorySocial(e.detail.value)}>
-              <IonSelectOption value="Comparative Gov't/Politics, POLS-285, 3, Yes">Comparative Gov't/Politics</IonSelectOption>
-              <IonSelectOption value="European History, HIST-Elective, 3, No">European History</IonSelectOption>
-              <IonSelectOption value="Human Geography, SS-Elective, 3, No">Human Geography</IonSelectOption>
-              <IonSelectOption value="Macroeconomics, ECON-201, 3, Yes">Macroeconomics I</IonSelectOption>
-              <IonSelectOption value="Microeconomics, ECON-202, 3, Yes">Microeconomics II</IonSelectOption>
-              <IonSelectOption value="Psychology, PSYC-101, 3, Yes">Psychology</IonSelectOption>
-              <IonSelectOption value="U.S. Gov't/Politics, POLS-101, 3, Yes">U.S Gov't/Politics</IonSelectOption>
-              <IonSelectOption value="United States History, HIST-111/HIST-112, 6, Yes">United States History</IonSelectOption>
-              <IonSelectOption value="World History, HIST-101/HIST-102, 6, Yes">World History</IonSelectOption>
+              <IonSelectOption value="POLS-285, 3, Yes">Comparative Gov't/Politics</IonSelectOption>
+              <IonSelectOption value="HIST-Elective, 3, No">European History</IonSelectOption>
+              <IonSelectOption value="SS-Elective, 3, No">Human Geography</IonSelectOption>
+              <IonSelectOption value="ECON-201, 3, Yes">Macroeconomics I</IonSelectOption>
+              <IonSelectOption value="ECON-202, 3, Yes">Microeconomics II</IonSelectOption>
+              <IonSelectOption value="PSYC-101, 3, Yes">Psychology</IonSelectOption>
+              <IonSelectOption value="POLS-101, 3, Yes">U.S Gov't/Politics</IonSelectOption>
+              <IonSelectOption value="HIST-111/HIST-112, 6, Yes">United States History</IonSelectOption>
+              <IonSelectOption value="HIST-101/HIST-102, 6, Yes">World History</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Math & Computer Science</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setMathCompsci(e.detail.value)}>
-              <IonSelectOption value="Calculus AB, MATH-170, 4, Yes">Calculus AB</IonSelectOption>
-              <IonSelectOption value="Calculus BC, MATH-170, 4, Yes">Calculus BC</IonSelectOption>
-              <IonSelectOption value="Computer Science A, CS-111, 4, No">Computer Science A</IonSelectOption>
-              <IonSelectOption value="Computer Science Principles, CS-108, 4, Yes">Computer Science Principles</IonSelectOption>
-              <IonSelectOption value="Statistics, MATH-153, 3, Yes">Statistics</IonSelectOption>
+              <IonSelectOption value="MATH-170, 4, Yes">Calculus AB</IonSelectOption>
+              <IonSelectOption value="MATH-170, 4, Yes">Calculus BC</IonSelectOption>
+              <IonSelectOption value="CS-111, 4, No">Computer Science A</IonSelectOption>
+              <IonSelectOption value="Principles, CS-108, 4, Yes">Computer Science Principles</IonSelectOption>
+              <IonSelectOption value="MATH-153, 3, Yes">Statistics</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>Sciences</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setSciences(e.detail.value)}>
-              <IonSelectOption value="Biology, BIOL-100, 4, Yes">Biology</IonSelectOption>
-              <IonSelectOption value="Chemistry, CHEM-111, 4, Yes">Chemistry</IonSelectOption>
-              <IonSelectOption value="Environmental Science, NS-150, 3, Yes">Environmental Science</IonSelectOption>
-              <IonSelectOption value="Physics 1, PHYS-111, 4, Yes">Physics I</IonSelectOption>
-              <IonSelectOption value="Physics 2, PHYS-112, 4, No">Physics II</IonSelectOption>
+              <IonSelectOption value="BIOL-100, 4, Yes">Biology</IonSelectOption>
+              <IonSelectOption value="CHEM-111, 4, Yes">Chemistry</IonSelectOption>
+              <IonSelectOption value="NS-150, 3, Yes">Environmental Science</IonSelectOption>
+              <IonSelectOption value="PHYS-111, 4, Yes">Physics I</IonSelectOption>
+              <IonSelectOption value="PHYS-112, 4, No">Physics II</IonSelectOption>
             </IonSelect>
           </IonItem>
 
           <IonItem class="ion-text-left" lines="none">
             <IonLabel>World Languages & Culture</IonLabel>
             <IonSelect interface="popover" interfaceOptions={options} multiple={true} onIonChange={e => setLanguageCulture(e.detail.value)}>
-              <IonSelectOption value="Spanish Language & Culture I, SPAN-101/SPAN-102, 8, Yes">Spanish Language & Culture I</IonSelectOption>
-              <IonSelectOption value="Spanish Language & Culture II, SPAN-101/SPAN-102/SPAN-201, 12, Yes">Spanish Language & Culture II</IonSelectOption>
-              <IonSelectOption value="Spanish Language & Culture III, SPAN-101/SPAN-102/SPAN-201/SPAN-202, 16, Yes">Spanish Language & Culture III</IonSelectOption>
-              <IonSelectOption value="Foreign Language I, FL1/FL2, 8, Yes">Foreign Language I</IonSelectOption>
-              <IonSelectOption value="Foreign Language II, FL1/FL2/FL3, 12, Yes">Foreign Language II</IonSelectOption>
-              <IonSelectOption value=">Foreign Language III, FL1/FL2/FL3/FL4, 16, Yes">Foreign Language III</IonSelectOption>
+              <IonSelectOption value="SPAN-101/SPAN-102, 8, Yes">Spanish Language & Culture I</IonSelectOption>
+              <IonSelectOption value="SPAN-101/SPAN-102/SPAN-201, 12, Yes">Spanish Language & Culture II</IonSelectOption>
+              <IonSelectOption value="SPAN-101/SPAN-102/SPAN-201/SPAN-202, 16, Yes">Spanish Language & Culture III</IonSelectOption>
+              <IonSelectOption value="FL1/FL2, 8, Yes">Foreign Language I</IonSelectOption>
+              <IonSelectOption value="FL1/FL2/FL3, 12, Yes">Foreign Language II</IonSelectOption>
+              <IonSelectOption value="FL1/FL2/FL3/FL4, 16, Yes">Foreign Language III</IonSelectOption>
             </IonSelect>
           </IonItem>
 

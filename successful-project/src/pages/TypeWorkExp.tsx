@@ -1,40 +1,67 @@
-import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonToolbar, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
+import { useContext, useState } from 'react';
+import { MyGlobalContext, updateData } from '../App';
 import MainHeader from '../components/MainHeader';
 
-const checkboxList = [
-  { val: 'Business', isChecked: true },
-  { val: 'Public speaking', isChecked: false },
-  { val: 'Strength And Fitness', isChecked: false },
-  { val: 'Community Health', isChecked: false },
-  { val: 'Special Education', isChecked: false }
-];
 const TypeWorkExp: React.FC = () => {
+  const currentContext = useContext(MyGlobalContext);
+  const { data, setData } = useContext(MyGlobalContext);
+  const router = useIonRouter(); //needed to route programmatically
+
+  const [Bus, Bus494] = useState(false);
+  const [Comm, Comm204] = useState(false);
+  const [Fitness, Kin267] = useState(false);
+  const [Health, Nu442] = useState(false);
+  const [SpecEd, Se335] = useState(false);
+
+  const checkboxList = [
+    { val: 'Business', course: "BUS-494, 3, Yes", state: Bus494, stateVal: Bus},
+    { val: 'Public speaking', course: "COMM-204, 3, Yes", state: Comm204, stateVal: Comm},
+    { val: 'Strength And Fitness', course: "KIN-352, 3, Yes", state: Kin267, stateVal: Fitness},
+    { val: 'Community Health', course: "NU-442, 3, Yes", state: Nu442, stateVal: Health},
+    { val: 'Special Education', course: "SE-335, 3, Yes", state: Se335, stateVal: SpecEd}
+  ];
+  
+
+  const nextPage = () => {
+    checkboxList.forEach(function (value){
+      if(value.stateVal){
+        var parsed = value.course.split(", ");
+        var core:boolean;
+        if(parsed[3] == "Yes"){core = true;}
+        else{core = false;}
+        var newData = { equiv: parsed[0], credits: Number(parsed[1]), core: core };
+        //prevent duplicates
+        if(!(currentContext.data.data.includes(newData))) {
+          setData(updateData(currentContext, parsed[0], Number(parsed[1]), core));
+        }
+      }
+    });
+    console.log(currentContext.data);
+    router.push("CreditResults", "forward", "push");
+  };
+
   return (
     <IonPage>
-  <MainHeader/>
+    <MainHeader/>
+    <IonContent fullscreen class= "scroll_content">
       <IonHeader class= "ion-text-center">
         <IonToolbar>
-          <IonLabel className= "ion-text-wrap"> Please select the subjects in which you have completed CLEP examinations</IonLabel>
-          {checkboxList.map(({ val, isChecked }, i) => (
+          <IonLabel className= "ion-text-wrap">In which of the following areas do have substantial work experience (select all that apply)?</IonLabel>
+          {checkboxList.map(({ val, course, state }, i) => (
           <IonItem class="ion-text-center" lines="none" key={i}>
             <IonLabel>{val}</IonLabel>
-            <IonCheckbox slot="end" value={val} checked={isChecked} color="tertiary"/>
+            <IonCheckbox slot="end" value={course} color="tertiary" onIonChange={e => state(e.detail.checked)}/>
           </IonItem>
         ))}
         </IonToolbar>
-        <IonButton color="tertiary" expand="block" routerLink='WhichBusinessCLEP'>
-          <IonLabel>Next</IonLabel>
-          <IonIcon icon={arrowForward} />
+        <IonButton color="tertiary" expand="block" onClick={() => nextPage()}>
+            <IonLabel>Next</IonLabel>
+            <IonIcon icon={arrowForward} />
         </IonButton>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-      </IonContent>
+    </IonContent>
     </IonPage>
   );
 };

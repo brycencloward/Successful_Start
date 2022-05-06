@@ -4,16 +4,13 @@ import { useState, useEffect, useContext } from 'react';
 import MainHeader from '../components/MainHeader';
 
 //context
-import { MyGlobalContext } from '../App';
+import { MyGlobalContext, updatePage } from '../App';
 
 const WhichTests: React.FC = () => {
 
-  //console.log(AppContext.pageData)
-  console.log(useContext(MyGlobalContext).data);
+  //console.log(useContext(MyGlobalContext).data);
+  const currentContext = useContext(MyGlobalContext);
   const { data, setData } = useContext(MyGlobalContext);
-  //setData("Another test data");
-  console.log(useContext(MyGlobalContext).data);
-
   const router = useIonRouter(); //needed to route programmatically
 
   const [AP, APexam] = useState(false);
@@ -43,18 +40,25 @@ const WhichTests: React.FC = () => {
     }
   }
 
-  const testCheck = (event: any) => {
+  const testCheck = () => {
     if(AP){
-      router.push("WhichAP", "forward", "push");
+      setData(updatePage(currentContext, "WhichAP"));
     }
-    else if(CLEP) {
-      router.push("WhichCLEP", "forward", "push");
+    if(CLEP) {
+      setData(updatePage(currentContext, "WhichCLEP"));
     }
-    else if(DSST){
-      router.push("WhichDSST", "forward", "push");
+    if(DSST){
+      setData(updatePage(currentContext, "WhichDSST"));
     }
-    else if(IB){
-      router.push("WhichIB", "forward", "push");
+    if(IB){
+      setData(updatePage(currentContext, "WhichIB"));
+    }
+    console.log(currentContext);
+    if(currentContext.data.pages.includes("TypeWorkExp")){
+      router.push(currentContext.data.pages[2], "forward", "push");
+    }
+    else{
+      router.push(currentContext.data.pages[1], "forward", "push");
     }
   };
   
@@ -71,7 +75,7 @@ const WhichTests: React.FC = () => {
           </IonItem>
         ))}
         </IonToolbar>
-        <IonButton color="tertiary" expand="block" onClick={(e) => testCheck(e)}>
+        <IonButton color="tertiary" expand="block" onClick={() => testCheck()}>
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />
         </IonButton>

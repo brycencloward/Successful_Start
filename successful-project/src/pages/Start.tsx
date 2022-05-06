@@ -3,11 +3,8 @@ import{arrowForward} from "ionicons/icons";
 import { IonContent, IonPage, IonCheckbox, IonItem, IonLabel, IonIcon, IonButton, IonHeader, IonToolbar } from '@ionic/react';
 import MainHeader from '../components/MainHeader';
 import { Browser } from '@capacitor/browser';
-import WorkExpCreditResults from './WorkExpCreditResults';
 import { useIonRouter } from '@ionic/react';
-
-//context
-import { MyGlobalContext, updateContext} from '../App';
+import { MyGlobalContext, updatePage } from '../App'; //context
 
 //const { data, setData } = useContext(MyGlobalContext);
 
@@ -20,12 +17,6 @@ const Home: React.FC = () => {
   //console.log(useContext(MyGlobalContext).data);
   const currentContext = useContext(MyGlobalContext);
   const { data, setData } = useContext(MyGlobalContext);
-  //setData("Different test data");
-  //setData(updateContext(useContext(MyGlobalContext), "New course", "New equiv", 3, true));
-  //console.log(updateContext(useContext(MyGlobalContext), "New course", "New equiv", 3, true));
-  //console.log(useContext(MyGlobalContext).data)
-  //setData(updateContext(useContext(MyGlobalContext)));
-  //const [data, setData] = useState({userData: "Different test data"});
   //console.log(useContext(MyGlobalContext).data);
 
   const router = useIonRouter(); //needed to route programmatically
@@ -50,21 +41,24 @@ const Home: React.FC = () => {
     else if(event.target.value == "TestsPassed"){
       hasTestsPassed(event.target.checked);
     }
-  }
+  };
   
-  const experienceCheck = (event: any) => {
-    //console.log("This is working!");
+  const experienceCheck = () => {
     //console.log(noExp, workExp, testsPassed);
     if(workExp && testsPassed){
+      setData(updatePage(currentContext, "TypeWorkExp"));
+      setData(updatePage(currentContext, "WhichTests"));
       router.push("WhichTests", "forward", "push");
     }
     else if(workExp){
+      setData(updatePage(currentContext, "TypeWorkExp"));
       router.push("TypeWorkExp", "forward", "push");
     }
     else if(testsPassed){
+      setData(updatePage(currentContext, "WhichTests"));
       router.push("WhichTests", "forward", "push");
     }
-    else{
+    else if(noExp){
       console.log("Opening external site");
       openCapacitorSite();
     }
@@ -87,7 +81,7 @@ const Home: React.FC = () => {
           </IonItem>
         ))}
       
-          <IonButton color="tertiary" expand="block" onClick={(e) => experienceCheck(e)}>
+          <IonButton color="tertiary" expand="block" onClick={() => experienceCheck()}>
             
           <IonLabel>Next</IonLabel>
           <IonIcon icon={arrowForward} />

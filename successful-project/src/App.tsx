@@ -5,9 +5,7 @@ import Home from './pages/Start';
 import WhichCLEP from './pages/WhichCLEP';
 import CreditResults from './pages/CreditResults';
 import TypeWorkExp from './pages/TypeWorkExp';
-import WhichBusinessCLEP from './pages/WhichBusinessCLEP';
 import WhichTests from './pages/WhichTests';
-import WorkExpCreditResults from './pages/WorkExpCreditResults';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,23 +30,13 @@ import WhichDSST from './pages/WhichDSST';
 import WhichIB from './pages/WhichIB';
 
 import { createContext, useContext, useMemo, useState } from 'react';
+import { runInNewContext } from 'vm';
 
 setupIonicReact();
 
-//export interface dataArray {
-//  course: string, equiv: string, credits: number, core: boolean
-//}
-
-export interface DataInterface {
-  // set the type of state you want to handle with context e.g.
-  courses: {course: string, equiv: string, credits: number, core: boolean}[]
-  //page: string,
-  //answers: {course: string, equiv: string, credits: number, core: boolean}[]
-}
-
 export interface ContextInterface {
-  data: {course: string, equiv: string, credits: number, core: boolean}[]
-  //setData: 
+  pages: string[],
+  data: {equiv: string, credits: number, core: boolean}[] 
 }
 
 //var testData: DataInterface = {page: "Start", courses: {course: "", equiv: null, credits: null, core: null}};
@@ -59,6 +47,7 @@ export var Context = createContext<ContextInterface | null>(null);
 //Provider in your app
 
 var start:ContextInterface = {
+  pages: [],
   data: []
 }
 
@@ -74,9 +63,8 @@ export const MyGlobalContext = createContext<GlobalData>({
 })
 
 //update function
-export const updateContext = (newContext: GlobalData, newCourse: string, newEquiv: string, newCredits: number, newCore: boolean) => {
+export const updateData = (newContext: GlobalData, newEquiv: string, newCredits: number, newCore: boolean) => {
   var check = {
-    course: newCourse,
     equiv: newEquiv,
     credits: newCredits,
     core: newCore
@@ -86,10 +74,14 @@ export const updateContext = (newContext: GlobalData, newCourse: string, newEqui
   return(newContext.data);
 }
 
+export const updatePage = (newContext: GlobalData, newPage: string) => {
+  newContext.data.pages.push(newPage);
+  return(newContext.data);
+}
+
 const App: React.FC = () => {
   //const [data, updateData] = useState({userData: "Test data"});
 
-  var DataInterface = null;
   const [data, setData] = useState(start);
   const value = useMemo(() => ({ data, setData }), [data]);
 
@@ -115,10 +107,6 @@ const App: React.FC = () => {
             <TypeWorkExp />
           </Route>
 
-          <Route exact path="/WhichBusinessCLEP">
-            <WhichBusinessCLEP />
-          </Route>
-
           <Route exact path="/WhichCLEP">
             <WhichCLEP />
           </Route>
@@ -137,10 +125,6 @@ const App: React.FC = () => {
 
           <Route exact path="/WhichTests">
             <WhichTests />
-          </Route>
-
-          <Route exact path="/WorkExpCreditResults">
-            <WorkExpCreditResults />
           </Route>
 
         </IonRouterOutlet>
