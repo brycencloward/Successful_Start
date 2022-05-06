@@ -31,10 +31,16 @@ const TypeWorkExp: React.FC = () => {
         var core:boolean;
         if(parsed[3] == "Yes"){core = true;}
         else{core = false;}
-        var newData = { equiv: parsed[0], credits: Number(parsed[1]), core: core };
         //prevent duplicates
-        if(!(currentContext.data.data.includes(newData))) {
-          setData(updateData(currentContext, parsed[0], Number(parsed[1]), core));
+        var found = false;
+        //a workaround I had to implement because currentContext.data.data.includes refused to work
+        currentContext.data.data.forEach(function (value2){
+          if(value2.equiv == parsed[0]){
+            found = true;
+          }
+        });
+        if(!found) {
+          updateData(currentContext, parsed[0], Number(parsed[1]), core);
         }
       }
     });

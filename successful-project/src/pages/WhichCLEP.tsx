@@ -1,7 +1,8 @@
 import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonSelectOption, IonToolbar, IonSelect, useIonRouter } from '@ionic/react';
+import { wait } from '@testing-library/react';
 import { arrowForward } from 'ionicons/icons';
 import { useContext, useState } from 'react';
-import { MyGlobalContext, updateData } from '../App';
+import { ContextInterface, MyGlobalContext, updateData } from '../App';
 import MainHeader from '../components/MainHeader';
 
 //custom popover interface options
@@ -30,12 +31,18 @@ const WhichCLEP: React.FC = () => {
         //parse different values
         var parsed = value.split(", ");
         var core:boolean;
-        if(parsed[3] == "Yes"){core = true;}
+        if(parsed[2] == "Yes"){core = true;}
         else{core = false;}
-        var newData = { equiv: parsed[0], credits: Number(parsed[1]), core: core };
         //prevent duplicates
-        if(!(currentContext.data.data.includes(newData))) {
-          setData(updateData(currentContext, parsed[0], Number(parsed[1]), core));
+        var found = false;
+        //a workaround I had to implement because currentContext.data.data.includes refused to work
+        currentContext.data.data.forEach(function (value2){
+          if(value2.equiv == parsed[0]){
+            found = true;
+          }
+        });
+        if(!found) {
+          updateData(currentContext, parsed[0], Number(parsed[1]), core);
         }
       });
     });
@@ -136,8 +143,6 @@ const WhichCLEP: React.FC = () => {
             <IonIcon icon={arrowForward} />
           </IonButton>
 
-        <IonHeader collapse="condense">
-        </IonHeader>
       </IonContent>
     </IonPage>
   );

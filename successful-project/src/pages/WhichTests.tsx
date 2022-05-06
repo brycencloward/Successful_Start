@@ -1,6 +1,6 @@
 import { IonButton, IonCheckbox, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import MainHeader from '../components/MainHeader';
 
 //context
@@ -42,16 +42,16 @@ const WhichTests: React.FC = () => {
 
   const testCheck = () => {
     if(AP){
-      setData(updatePage(currentContext, "WhichAP"));
+      updatePage(currentContext, "WhichAP");
     }
     if(CLEP) {
-      setData(updatePage(currentContext, "WhichCLEP"));
+      updatePage(currentContext, "WhichCLEP");
     }
     if(DSST){
-      setData(updatePage(currentContext, "WhichDSST"));
+      updatePage(currentContext, "WhichDSST");
     }
     if(IB){
-      setData(updatePage(currentContext, "WhichIB"));
+      updatePage(currentContext, "WhichIB");
     }
     console.log(currentContext);
     if(currentContext.data.pages.includes("TypeWorkExp")){

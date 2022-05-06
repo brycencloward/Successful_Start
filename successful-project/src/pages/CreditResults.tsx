@@ -5,6 +5,7 @@ import { Browser } from '@capacitor/browser';
 import { CallNumber } from 'capacitor-call-number';
 import { MyGlobalContext } from '../App';
 import { useContext } from 'react';
+import { genEdA, genEdB, possibleDegrees } from '../PossibleDegrees';
 
 const callNumber= async () => {
   await CallNumber.call({ number: '208-717-5813', bypassAppChooser: false });
@@ -26,6 +27,13 @@ function WorkExp(props: any) {
   );
 }
 
+function DegreeProgress(props: any) {
+
+  return (
+      <IonLabel className= "ion-text-wrap" class= "ion-text-center"> You could complete a {props.degreeName} with just {props.creditsLeft} more credits!</IonLabel>
+  );
+}
+
 const CreditResults: React.FC = () => {
 
   const currentContext = useContext(MyGlobalContext);
@@ -36,6 +44,57 @@ const CreditResults: React.FC = () => {
   if(currentContext.data.pages.includes("TypeWorkExp")){
     we = true;
   }
+
+  var genEdATotal = 0;
+  var genEdBTotal = 0;
+
+  var degreeNames:string[] = [];
+  interface degreeListItem {name: string, creditsLeft: number};
+  var degreeList:degreeListItem[] = [];
+
+  //an overly complicated procedure that calculates what classes have transfer equivalency, and where. I will simplify this in the near future
+  finalData.data.forEach(function (value1){ //for each class equivalancy
+    console.log("Now searching:" + value1.equiv);
+    genEdA.forEach(value2 => {
+      if(value2.courses.includes(value1.equiv)){
+        genEdATotal += value1.credits;
+      }
+    });
+    genEdB.forEach(value2 => {
+      if(value2.courses.includes(value1.equiv)){
+        genEdBTotal += value1.credits;
+      }
+    });
+
+    possibleDegrees.forEach(value2 => { //for each possible degree
+      var creditTotal = 0;
+      if(value2.name.includes("Associate")){
+        console.log("Associate");
+        creditTotal = genEdATotal;
+      } else {
+        console.log("Bachelor");
+        creditTotal = genEdBTotal;
+      }
+      value2.requirements.forEach(value3 => { //for each group of values within the degree
+        if(value3.courses.includes(value1.equiv)){ //for each course within the group of values
+          creditTotal = value1.credits + creditTotal;
+        }
+      });
+      let newDegree = {name: value2.name, creditsLeft: (Number(value2.credits) - creditTotal)};
+      if(degreeNames.includes(value2.name)) {
+        //find the existing degree and increment it
+        degreeList[degreeNames.indexOf(value2.name)].creditsLeft -= value1.credits;
+      } else {
+        degreeList.push(newDegree);
+        degreeNames.push(value2.name);
+      }
+    });
+
+  });
+
+  console.log(degreeList);
+  console.log(degreeNames);
+  
 
   return (
     <IonPage>
@@ -52,12 +111,11 @@ const CreditResults: React.FC = () => {
       <IonList lines='none'>
         
         <WorkExp usedWorkExp={we} ></WorkExp>
-        <IonItem>
-          <IonLabel className= "ion-text-wrap" class= "ion-text-center"> You could complete an Associate's Degree in Business Administration with just 52 more credits!</IonLabel>
-        </IonItem>
-        <IonItem>
-          <IonLabel className= "ion-text-wrap" class= "ion-text-center"> You could complete a Bachelor's Degree in Business Administration with just 111 more credits!</IonLabel>
-        </IonItem>
+        {degreeList.map(({name, creditsLeft}, i) => (
+          <IonItem key={i}>
+            <DegreeProgress degreeName={name} creditsLeft={creditsLeft}></DegreeProgress>
+          </IonItem>
+        ))}
       </IonList>
         <IonButton color="tertiary" expand="block" onClick={openCapacitorSite}>
           <IonLabel>Setup an appointment online now!</IonLabel>

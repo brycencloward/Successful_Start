@@ -30,7 +30,6 @@ import WhichDSST from './pages/WhichDSST';
 import WhichIB from './pages/WhichIB';
 
 import { createContext, useContext, useMemo, useState } from 'react';
-import { runInNewContext } from 'vm';
 
 setupIonicReact();
 
@@ -71,12 +70,12 @@ export const updateData = (newContext: GlobalData, newEquiv: string, newCredits:
   }
 
   newContext.data.data.push(check);
-  return(newContext.data);
+  console.log(newContext.data);
 }
 
 export const updatePage = (newContext: GlobalData, newPage: string) => {
   newContext.data.pages.push(newPage);
-  return(newContext.data);
+  //return(newContext.data);
 }
 
 const App: React.FC = () => {

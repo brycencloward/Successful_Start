@@ -6,8 +6,6 @@ import { Browser } from '@capacitor/browser';
 import { useIonRouter } from '@ionic/react';
 import { MyGlobalContext, updatePage } from '../App'; //context
 
-//const { data, setData } = useContext(MyGlobalContext);
-
 const openCapacitorSite = async () => {
   await Browser.open({ url: 'https://www.lcsc.edu/admissions/apply' });
 };
@@ -46,16 +44,16 @@ const Home: React.FC = () => {
   const experienceCheck = () => {
     //console.log(noExp, workExp, testsPassed);
     if(workExp && testsPassed){
-      setData(updatePage(currentContext, "TypeWorkExp"));
-      setData(updatePage(currentContext, "WhichTests"));
+      updatePage(currentContext, "TypeWorkExp");
+      updatePage(currentContext, "WhichTests");
       router.push("WhichTests", "forward", "push");
     }
     else if(workExp){
-      setData(updatePage(currentContext, "TypeWorkExp"));
+      updatePage(currentContext, "TypeWorkExp");
       router.push("TypeWorkExp", "forward", "push");
     }
     else if(testsPassed){
-      setData(updatePage(currentContext, "WhichTests"));
+      updatePage(currentContext, "WhichTests");
       router.push("WhichTests", "forward", "push");
     }
     else if(noExp){
@@ -87,7 +85,7 @@ const Home: React.FC = () => {
           <IonIcon icon={arrowForward} />
        </IonButton>
     </IonContent>
-  </IonPage>
+    </IonPage>
   );
 };
 
